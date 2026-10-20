@@ -1,0 +1,4 @@
+.intro { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.loose { gap: 18px; }
+.dark .eyebrow { color: var(--kn-color-dark-label); }
+.dark .body { color: var(--kn-color-on-navy); }

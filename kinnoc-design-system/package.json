@@ -1,0 +1,14 @@
+{
+  "name": "@kinnoc/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kinnoc website asset library and design tokens, extracted from the approved design. Drop alongside the kinnoc-web repository.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "verify": "node scripts/verify-assets.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

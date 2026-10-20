@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kinnoc website system and handoff</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; min-height: 2900px; box-sizing: border-box; padding: 72px 80px 96px; background: #ffffff; color: #0e1b3d; font-family: 'Figtree', system-ui, sans-serif; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; row-gap: 64px; align-content: start">
+
+  <header style="grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid #e7ebf2">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">KINNOC-WEB · NEXT.JS + TYPESCRIPT</span>
+      <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; line-height: 58px; font-weight: 600; letter-spacing: -2px">Website system and handoff</h1>
+    </div>
+    <p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 25px; color: #4d5b75">The site uses the same tokens as the app (Kinnoc Design System v2). This sheet adds what the web needs: type sizes per breakpoint, the grid, interaction states, motion, a component and section inventory, and the assets and placeholders still open.</p>
+  </header>
+
+  <section style="grid-column: span 6; display: flex; flex-direction: column; gap: 14px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Breakpoints and grid</h2>
+    <table style="border-collapse: collapse; font-size: 14px; line-height: 20px">
+      <thead><tr style="text-align: left; color: #5e6a82; font-size: 12px; letter-spacing: .6px"><th style="padding: 8px 12px 8px 0; border-bottom: 1px solid #e7ebf2">NAME</th><th style="padding: 8px 12px; border-bottom: 1px solid #e7ebf2">WIDTH</th><th style="padding: 8px 12px; border-bottom: 1px solid #e7ebf2">GUTTER</th><th style="padding: 8px 12px; border-bottom: 1px solid #e7ebf2">SECTION Y</th><th style="padding: 8px 0 8px 12px; border-bottom: 1px solid #e7ebf2">LAYOUT</th></tr></thead>
+      <tbody>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><b>Desktop</b></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">≥ 1024</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">48</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">120</td><td style="padding: 10px 0 10px 12px; border-bottom: 1px solid #e7ebf2">Two columns (5:7 or 7:5), gap 72; content max 1200</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><b>Tablet</b></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">640 to 1023</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">32</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">96</td><td style="padding: 10px 0 10px 12px; border-bottom: 1px solid #e7ebf2">One column; steps 3-up; listings 2-up; compact nav</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><b>Mobile</b></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">&lt; 640</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">20</td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">72</td><td style="padding: 10px 0 10px 12px; border-bottom: 1px solid #e7ebf2">One column; full-width CTAs; 4-column hero mosaic</td></tr>
+      </tbody>
+    </table>
+    <p style="margin: 0; font-size: 14px; line-height: 21px; color: #4d5b75">Containers are <b>max-width 1296</b> including gutters. Use CSS grid with <code>minmax(0, Nfr)</code> tracks and breakpoints at 640 and 1024; no absolute positioning anywhere on the page.</p>
+  </section>
+
+  <section style="grid-column: span 6; display: flex; flex-direction: column; gap: 14px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Type scale (desktop / tablet / mobile)</h2>
+    <table style="border-collapse: collapse; font-size: 14px; line-height: 20px">
+      <tbody>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 600; letter-spacing: -1px">Hero</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Bricolage 600 · 86/86 · 64/66 · 42/44 · tracking −3 / −2 / −1.3</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.6px">Section title</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Bricolage 600 · 50/54 · 42/46 · 34/38 · closing CTA 64 / 54 / 40</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 600">Item title</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Bricolage 600 · 26/30 (destinations, steps) · 22/27 (listings) · 21 to 26 (audiences)</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-size: 18px">Lead</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Figtree 400 · 20/30 · 19/28 · 17/26, max 520px wide</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-size: 16px">Body</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Figtree 400 · 17/27 · 17/26 · 16/25, max 480px wide, colour ink 2</td></tr>
+        <tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #e7ebf2"><span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">LABEL</span></td><td style="padding: 10px 12px; border-bottom: 1px solid #e7ebf2">Figtree 700 · 12/16 · +1px tracking · uppercase · ink 3 (on dark #9FB3D9)</td></tr>
+      </tbody>
+    </table>
+    <p style="margin: 0; font-size: 14px; line-height: 21px; color: #4d5b75">Load both families with <code>next/font/google</code> (Bricolage Grotesque 500 to 700 with the opsz axis, Figtree 400 to 700), <code>display: swap</code>.</p>
+  </section>
+
+  <section style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Colour on the web</h2>
+    <div style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 14px">
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #ffffff; box-shadow: inset 0 0 0 1px #e7ebf2"></span><span style="font-size: 13px; line-height: 18px"><b>Paper</b> #FFFFFF<br><span style="color: #5e6a82">Default ground</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #f4f6fa"></span><span style="font-size: 13px; line-height: 18px"><b>Mist</b> #F4F6FA<br><span style="color: #5e6a82">Preview stages, closing CTA, quiet buttons</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #0e1b3d"></span><span style="font-size: 13px; line-height: 18px"><b>Ink</b> #0E1B3D<br><span style="color: #5e6a82">Text; the one dark section</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #1a2b55"></span><span style="font-size: 13px; line-height: 18px"><b>Ink tile</b> #1A2B55<br><span style="color: #5e6a82">Listing tiles on ink</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #0068d6"></span><span style="font-size: 13px; line-height: 18px"><b>Action blue</b> #0068D6<br><span style="color: #5e6a82">Primary CTA, hero accent line</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #1e3a8a"></span><span style="font-size: 13px; line-height: 18px"><b>Navy</b> #1E3A8A<br><span style="color: #5e6a82">Your bubbles, monograms, event tile</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #e8f1ff"></span><span style="font-size: 13px; line-height: 18px"><b>Sky</b> #E8F1FF<br><span style="color: #5e6a82">Light monograms, hackathon tile</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="height: 64px; border-radius: 12px; background: #7fb8ff"></span><span style="font-size: 13px; line-height: 18px"><b>Blue on ink</b> #7FB8FF<br><span style="color: #5e6a82">Accent text on the dark section (8.2:1)</span></span></div>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 21px; color: #4d5b75">One dark section per page (Discover). Blue fills are limited to the primary CTA; everything else is paper, mist and ink. Amber #B45309 only for urgent deadlines inside previews. No red anywhere, including likes.</p>
+  </section>
+
+  <section style="grid-column: span 7; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Buttons, links and states</h2>
+    <div style="display: grid; grid-template-columns: 120px repeat(4, minmax(0, 1fr)); gap: 14px 16px; align-items: center; font-size: 12px; color: #5e6a82">
+      <span></span><b>DEFAULT</b><b>HOVER</b><b>FOCUS</b><b>DISABLED</b>
+      <b style="color: #0e1b3d; font-size: 14px">Primary</b>
+      <span style="height: 52px; border-radius: 12px; background: #0068d6; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Join Kinnoc</span>
+      <span style="height: 52px; border-radius: 12px; background: #0057b8; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Join Kinnoc</span>
+      <span style="height: 52px; border-radius: 12px; background: #0068d6; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #0068d6">Join Kinnoc</span>
+      <span style="height: 52px; border-radius: 12px; background: #f4f6fa; color: #5e6a82; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Join Kinnoc</span>
+      <b style="color: #0e1b3d; font-size: 14px">Quiet</b>
+      <span style="height: 52px; border-radius: 12px; background: #f4f6fa; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Explore</span>
+      <span style="height: 52px; border-radius: 12px; background: #e9edf4; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Explore</span>
+      <span style="height: 52px; border-radius: 12px; background: #f4f6fa; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #0068d6">Explore</span>
+      <span style="height: 52px; border-radius: 12px; background: #f4f6fa; color: #5e6a82; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">Explore</span>
+      <b style="color: #0e1b3d; font-size: 14px">On ink</b>
+      <span style="height: 52px; border-radius: 12px; background: #ffffff; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 6px #0e1b3d">Explore Discover</span>
+      <span style="height: 52px; border-radius: 12px; background: #e8f1ff; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 6px #0e1b3d">Explore Discover</span>
+      <span style="height: 52px; border-radius: 12px; background: #ffffff; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 3px #0e1b3d, 0 0 0 5px #7fb8ff">Explore Discover</span>
+      <span style="height: 52px; border-radius: 12px; background: #1a2b55; color: #9fb3d9; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; box-shadow: 0 0 0 6px #0e1b3d">Explore Discover</span>
+      <b style="color: #0e1b3d; font-size: 14px">Links</b>
+      <span style="font-size: 15px; font-weight: 600; color: #4d5b75">Communities</span>
+      <span style="font-size: 15px; font-weight: 600; color: #0068d6; text-decoration: underline; text-underline-offset: 4px">Communities</span>
+      <span style="font-size: 15px; font-weight: 600; color: #4d5b75; outline: 2px solid #0068d6; outline-offset: 3px; border-radius: 6px; justify-self: start">Communities</span>
+      <span style="font-size: 13px; color: #5e6a82">Not used</span>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 21px; color: #4d5b75">Buttons are 56 (hero, CTA), 52 (sections), 44 (nav) and 40 (compact nav) tall, radius 12 (10 at 40). Active state nudges 1px down. Focus is a 2px ring 3px outside, blue on paper and #7FB8FF on ink. Every target is at least 44 × 44.</p>
+  </section>
+
+  <section style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Motion</h2>
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; font-size: 15px; line-height: 22px">
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2"><b>Hero entrance</b> · label, headline, copy, CTAs rise 14px and fade in over 700ms, staggered 60 / 140 / 220 / 300ms.</li>
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2"><b>Mosaic</b> · tiles scale from 0.94 over 600ms, 40ms apart. Runs once on load.</li>
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2"><b>Destination switch</b> · preview and description fade up 6px over 280ms.</li>
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2"><b>Hover</b> · colour and background ease over 180ms. No lift, no scale, no parallax.</li>
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2"><b>Typing dots</b> · in conversation previews, 1.2s loop.</li>
+      <li style="padding: 12px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2"><b>Reduced motion</b> · all of the above off; the page is complete without them.</li>
+    </ul>
+  </section>
+
+  <section style="grid-column: span 7; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Component inventory</h2>
+    <table style="border-collapse: collapse; font-size: 14px; line-height: 20px">
+      <tbody>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2; width: 200px"><b>SiteHeader</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">Sticky, translucent paper with blur. Desktop: logo, four links, Sign in, Join. Below 1024: logo, Join (compact), menu button opening an in-flow panel of large links plus Sign in.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>Button</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">variant: primary · quiet · onInk; size: 56 · 52 · 44 · 40; optional trailing arrow; fullWidth on mobile.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>SectionIntro</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">label, title (with optional accent span), body; tone: paper · ink.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>HeroMosaic</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">Grid of tiles: Face (circle), Community (30% radius photo or monogram), ChatSnippet, RoleSnippet, EventSnippet. 5 × 4 layout at desktop and tablet, 4 × 5 on mobile. Purely decorative: one aria label for the group.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>AudienceRow</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">photo, title, sentence, example community (right column on desktop, under the text below 1024).</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>DestinationShowcase</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">Desktop: numbered vertical tabs (role=tablist) beside a mist stage. Below 1024: underline tabs in a row, then description, then stage. Previews: FeedPreview, CommunitiesPreview, DiscoverPreview, ProfilePreview, built from the app's own components.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>StepList</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">Ordered list, 3px ink rule on top of each step, title, sentence, mist illustration slot.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>ListingTile</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">kind: event (ink tile, big date) · role (paper tile, organisation monogram, deadline in label) · programme (sky tile, date range) · resource (ink tile, cover). Always labelled as example on the marketing site.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>ConversationPreview</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">Community header, incoming and outgoing bubbles, a reaction, a typing row.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2"><b>CommunityKindRow</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2">kind label, community square, name.</td></tr>
+        <tr><td style="padding: 10px 16px 10px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2"><b>ClosingCTA, SiteFooter</b></td><td style="padding: 10px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2">CTA on a mist band with an identity grid; footer with brand, Product, Company, Legal and the Brivent line.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Section inventory</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; font-size: 14px; line-height: 20px">
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>A Header</b> · sticky</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>B Hero</b> · headline across the top, lead and CTAs, identity mosaic</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>C Who it's for</b> · five audience rows</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>D Four destinations</b> · <code>#product</code></li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>E How Kinnoc works</b> · three steps</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>F Discover</b> · <code>#discover</code>, the one ink section</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>G Communities</b> · <code>#communities</code></li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>H Closing CTA</b> · <code>#join</code></li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2"><b>I Footer</b> · <code>#about</code> until an About page exists</li>
+    </ol>
+  </section>
+
+  <section style="grid-column: span 6; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Assets needed before launch</h2>
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; font-size: 14px; line-height: 20px">
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Logo as SVG</b> · lockup and symbol in blue, navy and white (only PNGs exist today), plus favicon set and a 1200 × 630 social image.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Five audience portraits</b> · 4:3, at least 800 × 600, real people with signed consent, natural light, Nigerian settings.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Eight to ten face crops</b> · square, at least 256 px, for the mosaic, previews and closing grid. Four supplied so far (Persons 1 to 4, 480 px crops), names pending.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Two community photos</b> · square, for photo-style community avatars.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>One event photo</b> · 16:10, at least 1200 wide, for the Feed preview and event tile.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2"><b>One resource cover</b> · 3:4. Export all photos as AVIF/WebP through <code>next/image</code>.</li>
+    </ul>
+    <p style="margin: 0; font-size: 13px; line-height: 19px; color: #5e6a82">The four supplied portraits are real people, cropped without retouching (see the mapping board). Every other photo is still a low-resolution placeholder cropped from earlier mockups.</p>
+  </section>
+
+  <section style="grid-column: span 6; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 600">Placeholders to resolve</h2>
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; font-size: 14px; line-height: 20px">
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Routes</b> · <code>#join</code>, <code>#join-start</code>, <code>#sign-in</code>, <code>#discover-app</code>, <code>#communities-app</code>, <code>#about-page</code>, <code>#contact</code>, <code>#privacy</code>, <code>#terms</code>.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Legal and contact</b> · Privacy Policy, Terms of Service and contact details are not written yet; no social links are shown until accounts exist.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Sample content</b> · all names, messages, communities, listings and counts in previews are illustrative. Listings carry an "Example listings" label.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2"><b>Join flow</b> · where "Join Kinnoc" goes (waitlist, web sign-up or app stores) is a product decision still open.</li>
+      <li style="padding: 10px 0; border-top: 1px solid #e7ebf2; border-bottom: 1px solid #e7ebf2"><b>SEO copy</b> · page title and meta description need sign-off: suggested "Kinnoc · Find your people, join the conversation, discover what's next".</li>
+    </ul>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

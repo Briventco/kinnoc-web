@@ -1,0 +1,56 @@
+/* Kinnoc website: interaction and motion layer, exactly as used by the approved design.
+   Class names match references/design-source/Home.dc.html so the two can be compared line by line.
+   Layout and colour live in components; this file only adds states and motion. */
+
+.kw a, .kw button { transition: background-color .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease, opacity .18s ease; }
+
+/* Buttons */
+.kw-primary:hover { background: #0057b8 !important; }                 /* action -> action-pressed */
+.kw-primary:active, .kw-quiet:active, .kw-light:active { transform: translateY(1px); }
+.kw-quiet:hover { background: #e9edf4 !important; }                   /* mist -> mist-2 */
+.kw-light:hover { background: #e8f1ff !important; }                   /* white button on the dark section -> sky */
+
+/* Links */
+.kw-link:hover { color: #0068d6 !important; }
+.kw-link-dark:hover { color: #ffffff !important; }
+.kw-under:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+
+/* Showcase controls */
+.kw-tab:hover { background: #f4f6fa !important; }                      /* desktop numbered item */
+.kw-tabline:hover { color: #0e1b3d !important; }                       /* tablet and mobile underline tab */
+.kw-row:hover { background: #f8f9fc; }                                 /* audience rows */
+
+/* Focus: keyboard only */
+.kw :focus-visible { outline: 2px solid #0068d6; outline-offset: 3px; border-radius: 10px; }
+.kw-dark :focus-visible { outline-color: #7fb8ff; }
+
+/* Inside the product showcase phone */
+.kw-scroll { scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior: contain; }
+.kw-scroll::-webkit-scrollbar { display: none; }
+.kw-app button { cursor: pointer; }
+.kw-app-row:hover { background: #f4f6fa !important; }
+.kw-app-icon:hover { background: #f4f6fa !important; }
+.kw-app-tab:hover { color: #0e1b3d !important; }
+.kw-app :focus-visible { outline: 2px solid #0068d6; outline-offset: -2px; border-radius: 8px; }
+
+/* Motion */
+.kw-rise { animation: kw-rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.kw-d1 { animation-delay: .06s; } .kw-d2 { animation-delay: .14s; } .kw-d3 { animation-delay: .22s; } .kw-d4 { animation-delay: .3s; }
+.kw-tile { animation: kw-pop .6s cubic-bezier(.2,.7,.2,1) both; }
+.kw-swap { animation: kw-fade .28s ease both; }
+.kw-screen { animation: kw-screen .38s cubic-bezier(.2,.7,.2,1) both; }
+.kw-push { animation: kw-push .26s cubic-bezier(.2,.7,.2,1) both; }
+.kw-dots i { display: inline-block; width: 5px; height: 5px; margin-right: 3px; border-radius: 99px; background: currentColor; animation: kw-dot 1.2s ease-in-out infinite; }
+.kw-dots i:nth-child(2) { animation-delay: .15s; } .kw-dots i:nth-child(3) { animation-delay: .3s; }
+
+@keyframes kw-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes kw-pop { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes kw-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes kw-screen { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes kw-push { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+@keyframes kw-dot { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kw-rise, .kw-tile, .kw-swap, .kw-screen, .kw-push, .kw-dots i { animation: none !important; }
+  .kw a, .kw button { transition: none !important; }
+}

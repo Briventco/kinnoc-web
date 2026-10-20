@@ -1,0 +1,100 @@
+/* Kinnoc base styles. Tokens come from kinnoc-design-system/styles/tokens.css (imported in layout.tsx);
+   hover, focus and motion classes (.kw-*) come from interactions.css. Nothing here redefines a token. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--kn-size-nav-height);
+}
+
+body {
+  margin: 0;
+  background: var(--kn-color-paper);
+  color: var(--kn-color-ink);
+  font-family: var(--kn-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, p, ol, ul { margin: 0; }
+img { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+a { color: inherit; }
+
+/* Page root. clip (not hidden) so the sticky header keeps working. */
+.kw { overflow-x: clip; }
+
+/* ---------- Shared layout ---------- */
+.kn-container {
+  width: 100%;
+  max-width: var(--kn-container-max);
+  margin: 0 auto;
+  padding-inline: var(--kn-space-page-x);
+}
+
+/* ---------- Shared type roles (DESIGN_SYSTEM.md §2) ---------- */
+.kn-eyebrow {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--kn-color-ink-3);
+}
+
+.kn-h2 {
+  font-family: var(--kn-font-display);
+  font-size: var(--kn-type-h2-size);
+  line-height: var(--kn-type-h2-line-height);
+  font-weight: 600;
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+
+.kn-lead {
+  font-size: var(--kn-type-lead-size);
+  line-height: var(--kn-type-lead-line-height);
+  color: var(--kn-color-ink-2);
+}
+
+.kn-body {
+  font-size: var(--kn-type-body-size);
+  line-height: var(--kn-type-body-line-height);
+  color: var(--kn-color-ink-2);
+}
+
+.kn-display { font-family: var(--kn-font-display); }
+
+.kn-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kn-skip {
+  position: absolute;
+  left: var(--kn-space-page-x);
+  top: 8px;
+  z-index: 30;
+  padding: 10px 14px;
+  border-radius: var(--kn-radius-md);
+  background: var(--kn-color-ink);
+  color: var(--kn-color-paper);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.kn-skip:focus-visible { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

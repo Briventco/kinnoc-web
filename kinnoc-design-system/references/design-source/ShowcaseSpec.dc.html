@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product showcase spec</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; min-height: 3000px; box-sizing: border-box; padding: 72px 72px 80px; background: #ffffff; color: #0e1b3d; font-family: 'Figtree', system-ui, sans-serif; -webkit-font-smoothing: antialiased">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid #e7ebf2">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">HANDOFF · kinnoc-web · ProductShowcase</span>
+      <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 52px; line-height: 56px; font-weight: 600; letter-spacing: -1.5px">Product showcase: components and interaction.</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 28px; color: #4d5b75">One section, four destinations, one phone. The previews are built from real UI components, not screenshots, so they stay sharp, accessible and easy to update as the app changes. Everything inside the phone is sample content.</p>
+    </div>
+    <img src="/_blob/10e1f593c83e03ff16c25d74d2c6504a" alt="Kinnoc" style="height: 44px; width: auto">
+  </div>
+
+  <!-- CONTROL STATES -->
+  <div style="padding-top: 40px">
+    <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">1 · SHOWCASE CONTROLS</span>
+    <h2 style="margin: 12px 0 24px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px">Selected, hover and focus states</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+      <sc-for list="{{states}}" as="st" hint-placeholder-count="4">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .8px; color: #1e3a8a">{{st.label}}</span>
+          <div style="border-radius: 16px; padding: 18px 22px; display: flex; gap: 16px; align-items: flex-start; background: {{st.bg}}; outline: {{st.outline}}; outline-offset: 3px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; line-height: 30px; font-weight: 700; color: {{st.num}}">02</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px; color: {{st.title}}">Communities</span><span style="font-size: 16px; line-height: 22px; font-weight: 600; color: #4d5b75">Find your people</span></span>
+          </div>
+          <div style="height: 44px; display: flex; align-items: center; gap: 22px; border-bottom: 1px solid #e7ebf2">
+            <span style="height: 44px; display: flex; align-items: center; font-size: 16px; font-weight: {{st.mWeight}}; color: {{st.mColor}}; box-shadow: {{st.mLine}}; outline: {{st.outline}}; outline-offset: 3px; border-radius: 4px">Communities</span>
+          </div>
+          <span style="font-size: 14px; line-height: 21px; color: #4d5b75">{{st.note}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 18px 0 0; font-size: 14px; line-height: 21px; color: #5e6a82">Top: desktop numbered item (1024 and up). Bottom: tablet and mobile underline tab. Focus ring is the site-wide 2px #0068D6 outline, 3px offset, shown on keyboard focus only (focus-visible).</p>
+  </div>
+
+  <!-- RESPONSIVE + INTERACTION -->
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; margin-top: 56px; padding-top: 40px; border-top: 1px solid #e7ebf2">
+    <div>
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">2 · LAYOUT</span>
+      <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px">Three widths</h2>
+      <sc-for list="{{layout}}" as="r" hint-placeholder-count="3">
+        <div style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid #e7ebf2">
+          <span style="display: flex; flex-direction: column"><b style="font-size: 15px; line-height: 22px">{{r.name}}</b><span style="font-size: 13px; color: #5e6a82">{{r.range}}</span></span>
+          <span style="font-size: 15px; line-height: 23px; color: #4d5b75">{{r.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div>
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">3 · BEHAVIOUR</span>
+      <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px">Interaction</h2>
+      <sc-for list="{{behaviour}}" as="r" hint-placeholder-count="6">
+        <div style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid #e7ebf2">
+          <b style="font-size: 15px; line-height: 22px">{{r.name}}</b>
+          <span style="font-size: 15px; line-height: 23px; color: #4d5b75">{{r.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid #e7ebf2">
+    <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">4 · COMPONENTS</span>
+    <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px">Reusable pieces and their props</h2>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px">
+      <sc-for list="{{components}}" as="c" hint-placeholder-count="20">
+        <div style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 18px; padding: 12px 0; border-top: 1px solid #e7ebf2">
+          <span style="display: flex; flex-direction: column; gap: 2px"><b style="font-size: 15px; line-height: 21px; font-family: ui-monospace, 'SF Mono', Menlo, monospace">{{c.name}}</b><span style="font-size: 12px; font-weight: 700; letter-spacing: .6px; color: #1e3a8a">{{c.group}}</span></span>
+          <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 14.5px; line-height: 21px; color: #0e1b3d">{{c.text}}</span><span style="font-size: 13px; line-height: 19px; color: #5e6a82; font-family: ui-monospace, 'SF Mono', Menlo, monospace">{{c.props}}</span></span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- TOKENS + ASSETS + CONTENT -->
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid #e7ebf2">
+    <div>
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">5 · IN-APP TOKENS</span>
+      <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.6px">Inside the phone</h2>
+      <sc-for list="{{tokens}}" as="r" hint-placeholder-count="10">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid #e7ebf2">
+          <span style="width: 22px; height: 22px; border-radius: 7px; background: {{r.sw}}; box-shadow: inset 0 0 0 1px rgba(14,27,61,.12); flex: none"></span>
+          <span style="flex: 1; font-size: 14px; line-height: 20px">{{r.name}}</span>
+          <span style="font-size: 13px; color: #5e6a82; font-family: ui-monospace, 'SF Mono', Menlo, monospace">{{r.val}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div>
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">6 · ASSETS</span>
+      <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.6px">What the build needs</h2>
+      <sc-for list="{{assets}}" as="r" hint-placeholder-count="6">
+        <div style="display: flex; flex-direction: column; gap: 3px; padding: 11px 0; border-top: 1px solid #e7ebf2">
+          <span style="display: flex; justify-content: space-between; gap: 12px"><b style="font-size: 14.5px; line-height: 20px">{{r.name}}</b><span style="flex: none; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; background: {{r.bg}}; color: {{r.fg}}">{{r.status}}</span></span>
+          <span style="font-size: 13.5px; line-height: 20px; color: #4d5b75">{{r.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div>
+      <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">7 · CONTENT</span>
+      <h2 style="margin: 12px 0 18px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.6px">Real versus sample</h2>
+      <sc-for list="{{content}}" as="r" hint-placeholder-count="6">
+        <div style="display: flex; flex-direction: column; gap: 3px; padding: 11px 0; border-top: 1px solid #e7ebf2">
+          <b style="font-size: 14.5px; line-height: 20px">{{r.name}}</b>
+          <span style="font-size: 13.5px; line-height: 20px; color: #4d5b75">{{r.text}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ring = '2px solid #0068d6';
+    const states = [
+      { label: 'DEFAULT', bg: 'transparent', outline: 'none', num: '#5e6a82', title: '#4d5b75', mWeight: 500, mColor: '#5e6a82', mLine: 'none', note: 'Number and title in secondary ink. No container.' },
+      { label: 'HOVER', bg: '#f4f6fa', outline: 'none', num: '#5e6a82', title: '#4d5b75', mWeight: 500, mColor: '#0e1b3d', mLine: 'none', note: 'Desktop gets the mist fill (#F4F6FA). Underline tabs darken the label to ink. 180 ms ease.' },
+      { label: 'SELECTED', bg: '#f4f6fa', outline: 'none', num: '#0068d6', title: '#0e1b3d', mWeight: 700, mColor: '#0e1b3d', mLine: 'inset 0 -2px 0 #0e1b3d', note: 'Number turns action blue, title ink, and the description and three feature lines open beneath. Underline tab: bold ink with a 2px ink rule.' },
+      { label: 'FOCUS VISIBLE', bg: 'transparent', outline: ring, num: '#5e6a82', title: '#4d5b75', mWeight: 500, mColor: '#5e6a82', mLine: 'none', note: 'Keyboard focus only. Combines with selected when the focused item is the current one.' }
+    ];
+    const layout = [
+      { name: 'Desktop', range: '1024 px and up', text: 'Two columns at 5 : 7 inside the 1296 container. Left: eyebrow, heading, supporting copy, then four numbered items stacked; the selected one expands with its description and feature lines. Right: a mist stage (radius 28, padding 56 / 40) spanning the full height, the phone at 380 × 780 (scale 1) centred, the selected number set large (200 px, #E3E9F3) behind it, and a one-line hint below.' },
+      { name: 'Tablet', range: '640 to 1023 px', text: 'Single column. Four underline tabs in one row over a hairline (44 px tall). Below: the destination headline, description and feature lines in a row. The stage runs full width (radius 24, padding 44 / 24) with the phone at full size and a 150 px number.' },
+      { name: 'Mobile', range: 'under 640 px', text: 'Same tab row (labels at 16 px, 18 px apart, still 44 px tall). Feature lines stack. The stage drops its fill so the phone can use the full content width: it scales to fit (0.92 at 390). Text inside never drops below about 12 px.' }
+    ];
+    const behaviour = [
+      { name: 'Selecting', text: 'Click, tap, Enter or Space selects a destination. The title, description, feature lines, stage number, hint and phone screen all change together. The phone screen fades up 8 px over 380 ms (ease out).' },
+      { name: 'Inside the phone', text: 'The app\'s own bottom navigation also switches destinations and keeps the showcase tabs in sync. Each destination remembers its state (feed tab, open conversation, filter, saved items) while the visitor moves around.' },
+      { name: 'Feed', text: 'For you, Following and Communities switch the list. Like and save toggle with the count updating. The feed scrolls inside the screen.' },
+      { name: 'Communities', text: 'All and Unread filter the inbox. Tech Creators opens its conversation (slides in from the right, 260 ms); back returns to the inbox with the unread badge cleared. Typing and sending adds a message and updates the inbox preview. Other rows show a short note that only Tech Creators is filled in.' },
+      { name: 'Discover', text: 'All, Events, Opportunities and Resources filter the list. The bookmark saves a listing; the header bookmark jumps to Saved on the profile.' },
+      { name: 'Profile', text: 'Posts and Saved switch the lower half. Saved reflects what was saved in Discover, with an empty state when nothing is.' },
+      { name: 'Keyboard and AT', text: 'Production: role="tablist" with four role="tab" items, aria-selected, aria-controls on a role="tabpanel"; arrow keys move between tabs, Home and End jump; one tab stop. The panel is labelled "<Destination> preview, sample content". Controls inside the phone are real buttons with labels.' },
+      { name: 'Reduced motion', text: 'prefers-reduced-motion removes the fade, slide and typing dots; state changes are instant.' }
+    ];
+    const components = [
+      { group: 'SECTION', name: 'ProductShowcase', text: 'Owns the selected destination and the per-destination demo state.', props: 'initial?: "feed" | "communities" | "discover" | "profile"' },
+      { group: 'SECTION', name: 'ShowcaseTabs', text: 'Numbered list on desktop, underline row below 1024. Same data drives both.', props: 'items: Destination[], value, onChange' },
+      { group: 'SECTION', name: 'ShowcaseDetail', text: 'Headline, description and three feature lines for the selected destination.', props: 'destination: Destination' },
+      { group: 'SECTION', name: 'PreviewStage', text: 'Mist stage, oversized number, hint line, sample-content note.', props: 'number, hint, children' },
+      { group: 'SECTION', name: 'PhoneFrame', text: 'Navy bezel (10 px, radius 58), 360 × 760 screen (radius 48), status bar, island, home indicator. Scales as one unit.', props: 'scale: number, children' },
+      { group: 'APP', name: 'AppHeader', text: 'Logo variant (Feed) or large title (Communities, Discover, Profile) with 40 px icon buttons.', props: 'title? | logo, actions: IconButton[]' },
+      { group: 'APP', name: 'SegmentTabs', text: 'Underline tabs used in Feed, Communities, Discover and Profile. Optional blue count.', props: 'items: {id, label, count?}[], value, onChange' },
+      { group: 'APP', name: 'AppNav', text: 'Four items, blue when active (icon and label), unread dot on Communities.', props: 'active, unread: boolean, onChange' },
+      { group: 'FEED', name: 'Composer', text: 'Own avatar, placeholder, photo button.', props: 'avatar' },
+      { group: 'FEED', name: 'PostCard', text: 'Author, community or organisation, time, text, optional media, like, comment, share, save.', props: 'author, context, time, text, media?, likes, comments, liked, saved' },
+      { group: 'FEED', name: 'CommunityUpdate', text: 'Mist band for community updates and events.', props: 'community, kind, time, title, meta' },
+      { group: 'COMMUNITIES', name: 'InboxRow', text: 'Community identity (photo or monogram), name, last message, time, unread count, mention, typing.', props: 'community, last, time, unread?, mention?, typing?' },
+      { group: 'COMMUNITIES', name: 'ConversationHeader', text: 'Back, identity, name, member names.', props: 'community, members' },
+      { group: 'COMMUNITIES', name: 'MessageBubble', text: 'Incoming (mist, sender name inside) or outgoing (navy, read ticks).', props: 'direction, sender?, text, time, status?' },
+      { group: 'COMMUNITIES', name: 'ReactionChip', text: 'Emoji and count, sky when you have reacted.', props: 'emoji, count, mine' },
+      { group: 'COMMUNITIES', name: 'MessageComposer', text: 'Attach, input, then send (blue) when there is text, camera when empty.', props: 'placeholder, onSend' },
+      { group: 'DISCOVER', name: 'FeaturedEvent', text: 'Navy card that leads with the date.', props: 'day, month, kind, title, meta, saved' },
+      { group: 'DISCOVER', name: 'ListingRow', text: 'Lead visual by type so listings are easy to tell apart, then kind, title, meta and save.', props: 'lead: "date" | "org" | "range" | "deadline" | "cover" | "video" | "doc", kind, warning?, title, meta, saved' },
+      { group: 'PROFILE', name: 'ProfileHeader', text: 'Photo, display name, username, headline, bio, Edit profile; settings in the app header.', props: 'person, isOwn' },
+      { group: 'PROFILE', name: 'CommunityStrip', text: 'Row of joined community identities with See all.', props: 'communities[]' }
+    ];
+    const tokens = [
+      { sw: '#0e1b3d', name: 'Ink, primary text and bezel', val: '#0E1B3D' },
+      { sw: '#4d5b75', name: 'Ink 2, secondary', val: '#4D5B75' },
+      { sw: '#5e6a82', name: 'Ink 3, meta and inactive', val: '#5E6A82' },
+      { sw: '#0068d6', name: 'Action blue, active nav, likes, badges', val: '#0068D6' },
+      { sw: '#1e3a8a', name: 'Navy, outgoing bubbles, featured event', val: '#1E3A8A' },
+      { sw: '#e8f1ff', name: 'Sky, own reaction, monograms', val: '#E8F1FF' },
+      { sw: '#eef1f6', name: 'Incoming bubble', val: '#EEF1F6' },
+      { sw: '#f4f6fa', name: 'Mist, stage, inputs, update bands', val: '#F4F6FA' },
+      { sw: '#e7ebf2', name: 'Line, dividers', val: '#E7EBF2' },
+      { sw: '#b45309', name: 'Amber, closing-soon only', val: '#B45309' }
+    ];
+    const done = { bg: '#e8f1ff', fg: '#1e3a8a' }, wait = { bg: '#fbf0e3', fg: '#8a4207' };
+    const a = (name, ok, text) => Object.assign({ name: name, text: text, status: ok ? 'In hand' : 'Needed' }, ok ? done : wait);
+    const assets = [
+      a('Caleb\'s portrait', true, 'Person 3 photo, matched to your account in the app screenshot. 480 px crop, fine up to 80 px.'),
+      a('Feed post photo', false, 'Cropped from the app screenshot (760 × 428). Needs the original at 1200 px or wider, and confirmation you can show the speaker and the names on the posters.'),
+      a('Tech Creators community photo', false, 'Still the AI placeholder. A real community photo, square, 256 px or more.'),
+      a('Resource cover', false, 'System Design Roadmap cover is a placeholder. 3 : 4, 240 px wide or more.'),
+      a('Kinnoc lockup as SVG', false, 'The app header and the site use the PNG lockup. An SVG keeps it sharp at every scale.'),
+      a('Icons', true, 'Lucide outline set (MIT), 1.8 px stroke at 20 to 24 px: house, message-square-text, compass, user, search, bell, image, heart, message-circle, send, bookmark, settings, chevron-left, plus, camera.')
+    ];
+    const content = [
+      { name: 'Real, from your app', text: 'Caleb\'s name, photo, Brivent Global Innovations and the HultPrize UNIOSUN post (text as in your screenshot, minus the stray full stop after the name).' },
+      { name: 'Needs your confirmation', text: 'The username @calebabisoye, the one-line bio and the three interests are placeholders in your voice. Replace them with what is on your real profile.' },
+      { name: 'Sample', text: 'Every other name, message, community, listing, count and time. Discover says so inside the phone, and every stage carries "Sample content, shown for illustration".' },
+      { name: 'Left out on purpose', text: 'The Stories row in your screenshot: the approved app brief excludes stories. The floating settings button. Follower counts on the profile, so no numbers are attached to a real person.' },
+      { name: 'Other people', text: 'Persons 1, 2 and 4 stay out of the previews until their names are confirmed; sample members use monograms instead of faces.' }
+    ];
+    return { states: states, layout: layout, behaviour: behaviour, components: components, tokens: tokens, assets: assets, content: content };
+  }
+}
+</script>
+</body>
+</html>

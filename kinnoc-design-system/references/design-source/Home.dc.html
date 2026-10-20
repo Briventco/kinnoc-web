@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kinnoc: Find your people</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/e627a548cbb6f8e4a753a3426929e53d">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="kw" ref="{{setRoot}}" style="width: 100%; background: #ffffff; color: #0e1b3d; font-family: 'Figtree', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden">
+
+  <!-- NAV -->
+  <header style="position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid #e7ebf2">
+    <div style="max-width: 1296px; margin: 0 auto; height: {{L.navH}}px; padding: 0 {{L.pad}}px; display: flex; align-items: center; gap: 24px">
+      <a href="#top" aria-label="Kinnoc home" style="display: flex; align-items: center; flex: none"><img src="/_blob/10e1f593c83e03ff16c25d74d2c6504a" alt="Kinnoc" style="height: {{L.logoH}}px; width: auto"></a>
+      <sc-if value="{{L.D}}" hint-placeholder-val="{{true}}">
+        <nav aria-label="Main" style="flex: 1; display: flex; justify-content: center; gap: 4px">
+          <a class="kw-link" href="#product" style="height: 44px; padding: 0 14px; display: flex; align-items: center; font-size: 15px; font-weight: 600; color: #4d5b75; text-decoration: none">Product</a>
+          <a class="kw-link" href="#communities" style="height: 44px; padding: 0 14px; display: flex; align-items: center; font-size: 15px; font-weight: 600; color: #4d5b75; text-decoration: none">Communities</a>
+          <a class="kw-link" href="#discover" style="height: 44px; padding: 0 14px; display: flex; align-items: center; font-size: 15px; font-weight: 600; color: #4d5b75; text-decoration: none">Discover</a>
+          <a class="kw-link" href="#about" style="height: 44px; padding: 0 14px; display: flex; align-items: center; font-size: 15px; font-weight: 600; color: #4d5b75; text-decoration: none">About</a>
+        </nav>
+        <a class="kw-link" href="#sign-in" style="height: 44px; padding: 0 12px; display: flex; align-items: center; font-size: 15px; font-weight: 600; color: #0e1b3d; text-decoration: none">Sign in</a>
+        <a class="kw-primary" href="#join" style="height: 44px; padding: 0 18px; border-radius: 12px; background: #0068d6; color: #ffffff; display: flex; align-items: center; font-size: 15px; font-weight: 600; text-decoration: none">Join Kinnoc</a>
+      </sc-if>
+      <sc-if value="{{L.notD}}" hint-placeholder-val="{{false}}">
+        <span style="flex: 1"></span>
+        <a class="kw-primary" href="#join" style="height: 40px; padding: 0 14px; border-radius: 10px; background: #0068d6; color: #ffffff; display: flex; align-items: center; font-size: 14px; font-weight: 600; text-decoration: none">Join Kinnoc</a>
+        <button aria-label="Menu" aria-expanded="{{menu.expanded}}" onClick="{{menu.toggle}}" style="width: 44px; height: 44px; margin-right: -10px; border: 0; background: none; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; cursor: pointer">
+          <sc-if value="{{menu.closed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></sc-if>
+          <sc-if value="{{menu.open}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></sc-if>
+        </button>
+      </sc-if>
+    </div>
+    <sc-if value="{{menu.open}}" hint-placeholder-val="{{false}}">
+      <nav aria-label="Main" class="kw-swap" style="padding: 8px {{L.pad}}px 20px; display: flex; flex-direction: column; border-top: 1px solid #e7ebf2">
+        <a href="#product" onClick="{{menu.close}}" style="height: 52px; display: flex; align-items: center; border-bottom: 1px solid #e7ebf2; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 600; color: #0e1b3d; text-decoration: none">Product</a>
+        <a href="#communities" onClick="{{menu.close}}" style="height: 52px; display: flex; align-items: center; border-bottom: 1px solid #e7ebf2; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 600; color: #0e1b3d; text-decoration: none">Communities</a>
+        <a href="#discover" onClick="{{menu.close}}" style="height: 52px; display: flex; align-items: center; border-bottom: 1px solid #e7ebf2; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 600; color: #0e1b3d; text-decoration: none">Discover</a>
+        <a href="#about" onClick="{{menu.close}}" style="height: 52px; display: flex; align-items: center; border-bottom: 1px solid #e7ebf2; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 600; color: #0e1b3d; text-decoration: none">About</a>
+        <a class="kw-quiet" href="#sign-in" onClick="{{menu.close}}" style="margin-top: 16px; height: 48px; border-radius: 12px; background: #f4f6fa; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: #0e1b3d; text-decoration: none">Sign in</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <main id="top">
+
+  <!-- HERO -->
+  <section style="max-width: 1296px; margin: 0 auto; padding: {{L.heroTop}}px {{L.pad}}px {{L.heroBottom}}px; display: grid; grid-template-columns: {{L.heroCols}}; column-gap: {{L.heroGap}}px; row-gap: {{L.heroRowGap}}px; align-items: start">
+    <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: {{L.heroStack}}px; min-width: 0">
+      <span class="kw-rise" style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">COMMUNITIES · CONVERSATIONS · OPPORTUNITIES</span>
+      <h1 class="kw-rise kw-d1" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h1}}px; line-height: {{L.h1lh}}px; font-weight: 600; letter-spacing: {{L.h1ls}}px"><span style="display: block">Find your people.</span><span style="display: block">Join the conversation.</span><span style="display: block; color: #0068d6">Discover what's next.</span></h1>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: {{L.heroStack}}px; min-width: 0; padding-top: {{L.heroTextTop}}px">
+      <p class="kw-rise kw-d2" style="margin: 0; max-width: 520px; font-size: {{L.lead}}px; line-height: {{L.leadlh}}px; color: #4d5b75">A home for students, creators and professionals to connect, share ideas, find opportunities and grow together.</p>
+      <div class="kw-rise kw-d3" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px">
+        <a class="kw-primary" href="#join" style="height: 56px; padding: 0 26px; border-radius: 12px; background: #0068d6; color: #ffffff; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; text-decoration: none; flex: {{L.ctaFlex}}; justify-content: center">Join Kinnoc<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kw-quiet" href="#communities" style="height: 56px; padding: 0 24px; border-radius: 12px; background: #f4f6fa; color: #0e1b3d; display: flex; align-items: center; font-size: 16px; font-weight: 600; text-decoration: none; flex: {{L.ctaFlex}}; justify-content: center">Explore communities</a>
+      </div>
+      <span class="kw-rise kw-d4" style="display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 18px; color: #5e6a82"><img src="/_blob/e00526c9e1e43836a4f68866c19c38fa" alt="" style="width: 14px; height: 18px; object-fit: contain">Built by Brivent Global Innovations Limited</span>
+    </div>
+
+    <div aria-label="A preview of people, communities and opportunities on Kinnoc" role="img" style="display: flex; justify-content: {{L.mosaicJustify}}; min-width: 0">
+      <div style="display: grid; grid-template-columns: repeat({{mosaic.cols}}, {{mosaic.cell}}px); grid-auto-rows: {{mosaic.cell}}px; gap: {{mosaic.gap}}px">
+        <sc-for list="{{mosaic.items}}" as="it" hint-placeholder-count="13">
+          <div class="kw-tile" aria-hidden="true" style="grid-area: {{it.area}}; animation-delay: {{it.delay}}; min-width: 0">
+            <sc-if value="{{it.isFace}}" hint-placeholder-val="{{true}}"><img src="{{it.img}}" alt="" style="width: 100%; height: 100%; border-radius: 999px; object-fit: cover; display: block"></sc-if>
+            <sc-if value="{{it.isPhoto}}" hint-placeholder-val="{{false}}"><img src="{{it.img}}" alt="" style="width: 100%; height: 100%; border-radius: 30%; object-fit: cover; display: block"></sc-if>
+            <sc-if value="{{it.isMono}}" hint-placeholder-val="{{false}}"><span style="width: 100%; height: 100%; border-radius: 30%; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; letter-spacing: -0.5px; font-size: {{mosaic.monoSize}}px; background: {{it.bg}}; color: {{it.fg}}">{{it.mono}}</span></sc-if>
+            <sc-if value="{{it.isChat}}" hint-placeholder-val="{{false}}">
+              <div style="height: 100%; box-sizing: border-box; border-radius: {{mosaic.r}}px; background: #eef1f6; padding: 0 16px; display: flex; align-items: center; gap: 12px">
+                <img src="/_blob/430c0f09899bf1d66967a5f938945709" alt="" style="width: 36px; height: 36px; border-radius: 999px; object-fit: cover; flex: none">
+                <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 12px; line-height: 16px; color: #5e6a82"><b style="color: #0e1b3d">{{who.p3}}</b> in Tech Creators</span><span style="font-size: 15px; line-height: 20px">Who's going to the hackathon this weekend?</span></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{it.isOpp}}" hint-placeholder-val="{{false}}">
+              <div style="height: 100%; box-sizing: border-box; border-radius: {{mosaic.r}}px; background: #ffffff; box-shadow: 0 12px 32px rgba(14,27,61,.10), 0 0 0 1px rgba(14,27,61,.06); padding: 0 16px; display: flex; align-items: center; gap: 12px">
+                <span style="width: 40px; height: 40px; border-radius: 12px; background: #e8f1ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; flex: none">B</span>
+                <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: .8px; color: #5e6a82">INTERNSHIP · REMOTE</span><span style="font-size: 15px; line-height: 20px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Frontend Developer (Internship)</span></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{it.isEvent}}" hint-placeholder-val="{{false}}">
+              <div style="height: 100%; box-sizing: border-box; border-radius: {{mosaic.r}}px; background: #1e3a8a; color: #ffffff; padding: 0 16px; display: flex; align-items: center; gap: 12px">
+                <span style="display: flex; flex-direction: column; align-items: center; flex: none"><span style="font-size: 10px; line-height: 12px; font-weight: 700; letter-spacing: .8px; color: #c9d8f2">OCT</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 34px; font-weight: 700">24</span></span>
+                <span style="font-size: 15px; line-height: 19px; font-weight: 600">Lagos Tech Meetup</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section aria-labelledby="who" style="border-top: 1px solid #e7ebf2">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.sec}}px {{L.pad}}px; display: grid; grid-template-columns: {{L.twoCols}}; gap: {{L.colGap}}px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">WHO IT'S FOR</span>
+        <h2 id="who" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h2}}px; line-height: {{L.h2lh}}px; font-weight: 600; letter-spacing: -1px; text-wrap: balance">A place for every kind of builder.</h2>
+        <p style="margin: 0; max-width: 440px; font-size: {{L.body}}px; line-height: {{L.bodylh}}px; color: #4d5b75">Whether you're finding your campus community, sharing work in progress or looking for your next opportunity, Kinnoc puts the right people and conversations within reach.</p>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <sc-for list="{{people}}" as="p" hint-placeholder-count="5">
+          <div class="kw-row" style="display: grid; grid-template-columns: {{L.whoRowCols}}; gap: {{L.whoRowGap}}px; align-items: center; padding: 18px 0; border-top: 1px solid #e7ebf2">
+            <img src="{{p.img}}" alt="{{p.alt}}" style="width: {{L.personW}}px; height: {{L.personH}}px; border-radius: 14px; object-fit: cover; display: block; background: #eef1f6">
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.whoTitle}}px; line-height: 1.15; font-weight: 600; letter-spacing: -0.4px">{{p.title}}</span>
+              <span style="font-size: 15px; line-height: 22px; color: #4d5b75">{{p.text}}</span>
+              <sc-if value="{{L.notD}}" hint-placeholder-val="{{false}}"><span style="margin-top: 6px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #4d5b75"><span style="width: 24px; height: 24px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 700; background: {{p.bg}}; color: {{p.fg}}">{{p.mono}}</span>{{p.community}}</span></sc-if>
+            </div>
+            <sc-if value="{{L.D}}" hint-placeholder-val="{{true}}">
+              <span style="display: flex; align-items: center; gap: 10px; justify-self: end; font-size: 14px; font-weight: 600; color: #4d5b75; white-space: nowrap"><span style="width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px; font-weight: 700; background: {{p.bg}}; color: {{p.fg}}">{{p.mono}}</span>{{p.community}}</span>
+            </sc-if>
+          </div>
+        </sc-for>
+        <span style="padding-top: 14px; border-top: 1px solid #e7ebf2; font-size: 13px; line-height: 18px; color: #5e6a82">Community names are examples of what you could join.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR DESTINATIONS: product showcase -->
+  <section id="product" aria-labelledby="product-title" style="background: #ffffff">
+    <div style="max-width: 1296px; margin: 0 auto; padding: 0 {{L.pad}}px {{L.sec}}px; display: grid; grid-template-columns: {{F.cols}}; grid-template-rows: {{F.rows}}; column-gap: {{F.colGap}}px; row-gap: {{F.rowGap}}px">
+      <div style="grid-column: {{F.headCol}}; grid-row: 1; display: flex; flex-direction: column; gap: 16px; padding-bottom: {{F.headPad}}px">
+        <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">ONE APP, FOUR PLACES</span>
+        <h2 id="product-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h2}}px; line-height: {{L.h2lh}}px; font-weight: 600; letter-spacing: -1px; text-wrap: balance">Everything you need, in one place.</h2>
+        <p style="margin: 0; max-width: 460px; font-size: {{L.body}}px; line-height: {{L.bodylh}}px; color: #4d5b75">From meaningful conversations to opportunities that move you forward, Kinnoc brings your community together.</p>
+      </div>
+      <sc-if value="{{L.notD}}" hint-placeholder-val="{{false}}"><div aria-hidden="true" style="grid-column: 1 / -1; grid-row: 2; align-self: end; height: 1px; background: #e7ebf2"></div></sc-if>
+
+      <sc-for list="{{tabList}}" as="t" hint-placeholder-count="4">
+        <button class="{{t.cls}}" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" aria-controls="kw-showcase" style="grid-column: {{t.col}}; grid-row: {{t.row}}; text-align: left; border: 0; cursor: pointer; font-family: inherit; color: inherit; border-radius: {{F.tabR}}px; padding: {{F.tabPad}}; background: {{t.bg}}; box-shadow: {{t.line}}; display: flex; gap: 16px; align-items: flex-start; min-height: 44px; position: relative; z-index: 1">
+          <sc-if value="{{L.D}}" hint-placeholder-val="{{true}}"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; line-height: 30px; font-weight: 700; color: {{t.numColor}}">{{t.num}}</span></sc-if>
+          <span style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+            <span style="font-family: {{F.tabFont}}; font-size: {{F.tabSize}}px; line-height: {{F.tabLh}}px; font-weight: {{t.weight}}; letter-spacing: {{F.tabLs}}px; white-space: nowrap; color: {{t.titleColor}}">{{t.name}}</span>
+            <sc-if value="{{L.D}}" hint-placeholder-val="{{true}}"><span style="font-size: 16px; line-height: 22px; font-weight: 600; color: #4d5b75">{{t.sub}}</span></sc-if>
+            <sc-if value="{{t.open}}" hint-placeholder-val="{{false}}">
+              <span class="kw-swap" style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
+                <span style="font-size: 15px; line-height: 23px; color: #4d5b75">{{t.desc}}</span>
+                <span style="display: flex; flex-direction: column; gap: 9px">
+                  <sc-for list="{{t.feats}}" as="f" hint-placeholder-count="3"><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 20px; font-weight: 600; color: #0e1b3d"><span aria-hidden="true" style="width: 10px; height: 2px; border-radius: 2px; background: #0068d6; flex: none"></span>{{f}}</span></sc-for>
+                </span>
+              </span>
+            </sc-if>
+          </span>
+        </button>
+      </sc-for>
+
+      <sc-if value="{{L.notD}}" hint-placeholder-val="{{false}}">
+        <div style="grid-column: 1 / -1; grid-row: 3; display: flex; flex-direction: column; gap: 10px; padding-top: 6px">
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; line-height: 28px; font-weight: 600; letter-spacing: -0.4px">{{cur.sub}}</span>
+          <span style="font-size: 16px; line-height: 25px; color: #4d5b75">{{cur.desc}}</span>
+          <span style="display: flex; flex-direction: {{F.featDir}}; flex-wrap: wrap; gap: 9px 24px; margin-top: 4px">
+            <sc-for list="{{cur.feats}}" as="f" hint-placeholder-count="3"><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 20px; font-weight: 600; color: #0e1b3d"><span aria-hidden="true" style="width: 10px; height: 2px; border-radius: 2px; background: #0068d6; flex: none"></span>{{f}}</span></sc-for>
+          </span>
+        </div>
+      </sc-if>
+
+      <div id="kw-showcase" role="region" aria-label="{{cur.region}}" style="grid-column: {{F.prevCol}}; grid-row: {{F.prevRow}}; position: relative; border-radius: {{F.stageR}}px; background: {{F.stageBg}}; padding: {{F.stagePadV}}px {{F.stagePadH}}px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; box-sizing: border-box; overflow: hidden; min-width: 0">
+        <sc-if value="{{F.showNum}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="position: absolute; top: 22px; left: 30px; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{F.numSize}}px; line-height: 1; font-weight: 700; letter-spacing: -6px; color: #e3e9f3">{{cur.num}}</span></sc-if>
+        <div style="position: relative; width: {{ph.w}}px; height: {{ph.h}}px; flex: none">
+          <div style="position: absolute; top: 0; left: 0; width: 380px; height: 780px; transform: scale({{ph.s}}); transform-origin: 0 0">
+            <div style="width: 380px; height: 780px; box-sizing: border-box; padding: 10px; border-radius: 58px; background: #0e1b3d; box-shadow: 0 50px 90px -30px rgba(14,27,61,.45), inset 0 0 0 1.5px #2a3a63">
+              <div class="kw-app" style="position: relative; width: 360px; height: 760px; border-radius: 48px; background: #ffffff; overflow: hidden; display: flex; flex-direction: column; color: #0e1b3d; font-family: 'Figtree', system-ui, sans-serif; text-align: left">
+
+                <!-- status bar -->
+                <div aria-hidden="true" style="flex: none; height: 50px; padding: 0 28px 0 36px; display: flex; align-items: center; justify-content: space-between; font-size: 15px; font-weight: 600">
+                  <span>9:41</span>
+                  <span style="position: absolute; top: 11px; left: 126px; width: 108px; height: 31px; border-radius: 20px; background: #000000"></span>
+                  <span style="display: flex; align-items: center; gap: 6px"><svg width="18" height="12" viewBox="0 0 18 12" fill="#0e1b3d"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="#0e1b3d" stroke-width="1.7" stroke-linecap="round"><path d="M1.2 4.3a9.6 9.6 0 0 1 13.6 0"/><path d="M3.6 6.8a6.2 6.2 0 0 1 8.8 0"/><path d="M6 9.3a2.8 2.8 0 0 1 4 0"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3.5" fill="none" stroke="#0e1b3d" opacity=".4"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#0e1b3d"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="#0e1b3d" opacity=".4"/></svg></span>
+                </div>
+
+                <!-- FEED -->
+                <sc-if value="{{scr.feed}}" hint-placeholder-val="{{true}}">
+                  <div class="kw-screen" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+                    <div style="flex: none; height: 52px; padding: 0 10px 0 18px; display: flex; align-items: center; gap: 2px">
+                      <img src="/_blob/10e1f593c83e03ff16c25d74d2c6504a" alt="Kinnoc" style="height: 30px; width: auto">
+                      <span style="flex: 1"></span>
+                      <button class="kw-app-icon" aria-label="Search" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg></button>
+                      <button class="kw-app-icon" aria-label="Notifications, 1 new" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span style="position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 99px; background: #0068d6; box-shadow: 0 0 0 2px #ffffff"></span></button>
+                    </div>
+                    <div style="flex: none; display: flex; gap: 22px; padding: 0 18px; border-bottom: 1px solid #e7ebf2">
+                      <sc-for list="{{feed.tabs}}" as="ft" hint-placeholder-count="3"><button class="kw-app-tab" onClick="{{ft.pick}}" aria-pressed="{{ft.pressed}}" style="height: 42px; padding: 0; border: 0; background: none; font-family: inherit; font-size: 15px; font-weight: {{ft.weight}}; color: {{ft.color}}; box-shadow: {{ft.line}}">{{ft.label}}</button></sc-for>
+                    </div>
+                    <div class="kw-scroll" style="flex: 1; min-height: 0; overflow-y: auto">
+                      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 10px 12px 18px; border-bottom: 1px solid #e7ebf2">
+                        <img src="{{me.img}}" alt="" style="width: 36px; height: 36px; border-radius: 999px; object-fit: cover; flex: none">
+                        <span style="flex: 1; min-width: 0; font-size: 14.5px; color: #5e6a82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Share something with your communities</span>
+                        <button class="kw-app-icon" aria-label="Add a photo" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></button>
+                      </div>
+                      <sc-for list="{{feed.items}}" as="it" hint-placeholder-count="3">
+                        <sc-if value="{{it.isPost}}" hint-placeholder-val="{{true}}">
+                          <article style="padding: 14px 18px 2px; border-bottom: 1px solid #e7ebf2">
+                            <div style="display: flex; align-items: center; gap: 10px">
+                              <sc-if value="{{it.hasImg}}" hint-placeholder-val="{{true}}"><img src="{{it.av}}" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover; flex: none"></sc-if>
+                              <sc-if value="{{it.hasMono}}" hint-placeholder-val="{{false}}"><span style="width: 40px; height: 40px; border-radius: 999px; background: {{it.avBg}}; color: {{it.avFg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; flex: none">{{it.mono}}</span></sc-if>
+                              <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><b style="font-size: 15px; line-height: 20px">{{it.name}}</b><span style="font-size: 12.5px; line-height: 17px; color: #5e6a82">{{it.ctx}} · {{it.time}}</span></span>
+                              <button class="kw-app-icon" aria-label="More options" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none; margin-right: -10px; color: #5e6a82"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>
+                            </div>
+                            <p style="margin: 10px 0 0; font-size: 15px; line-height: 22px">{{it.text}}</p>
+                            <sc-if value="{{it.hasMedia}}" hint-placeholder-val="{{true}}"><img src="{{it.media}}" alt="{{it.mediaAlt}}" style="display: block; margin-top: 12px; width: 100%; height: 182px; border-radius: 12px; object-fit: cover; background: #eef1f6"></sc-if>
+                            <div style="display: flex; align-items: center; height: 46px; margin: 2px -8px 0">
+                              <button onClick="{{it.like}}" aria-pressed="{{it.liked}}" aria-label="Like" style="height: 36px; padding: 0 8px; border: 0; background: none; border-radius: 10px; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 13px; font-weight: 600; color: {{it.likeColor}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{it.likeFill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>{{it.likes}}</button>
+                              <button aria-label="Comments" style="height: 36px; padding: 0 8px; border: 0; background: none; border-radius: 10px; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 13px; font-weight: 600; color: #4d5b75"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>{{it.comments}}</button>
+                              <button aria-label="Share" style="height: 36px; padding: 0 8px; border: 0; background: none; border-radius: 10px; display: flex; align-items: center; color: #4d5b75"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 21.7a.5.5 0 0 0 .9 0l6.5-19a.5.5 0 0 0-.6-.6l-19 6.5a.5.5 0 0 0 0 .9l7.9 3.2a2 2 0 0 1 1.1 1.1z"/><path d="m21.9 2.1-11 11"/></svg></button>
+                              <span style="flex: 1"></span>
+                              <button onClick="{{it.save}}" aria-pressed="{{it.kept}}" aria-label="Save" style="height: 36px; padding: 0 8px; border: 0; background: none; border-radius: 10px; display: flex; align-items: center; color: {{it.keepColor}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{it.keepFill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                            </div>
+                          </article>
+                        </sc-if>
+                        <sc-if value="{{it.isUpdate}}" hint-placeholder-val="{{false}}">
+                          <div style="padding: 14px 18px 16px; background: #f4f6fa; border-bottom: 1px solid #e7ebf2">
+                            <span style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; line-height: 17px; color: #5e6a82">
+                              <sc-if value="{{it.hasPhoto}}" hint-placeholder-val="{{false}}"><img src="{{it.img}}" alt="" style="width: 22px; height: 22px; border-radius: 7px; object-fit: cover"></sc-if>
+                              <sc-if value="{{it.hasTile}}" hint-placeholder-val="{{true}}"><span style="width: 22px; height: 22px; border-radius: 7px; background: {{it.bg}}; color: {{it.fg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 700">{{it.mono}}</span></sc-if>
+                              <span><b style="color: #0e1b3d">{{it.name}}</b> · {{it.kind}} · {{it.time}}</span>
+                            </span>
+                            <span style="display: block; margin-top: 8px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; line-height: 23px; font-weight: 600">{{it.title}}</span>
+                            <span style="display: block; margin-top: 4px; font-size: 13px; line-height: 18px; color: #4d5b75">{{it.meta}}</span>
+                          </div>
+                        </sc-if>
+                      </sc-for>
+                      <div style="height: 12px"></div>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- COMMUNITIES: inbox -->
+                <sc-if value="{{scr.inbox}}" hint-placeholder-val="{{false}}">
+                  <div class="kw-screen" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+                    <div style="flex: none; height: 56px; padding: 0 10px 0 18px; display: flex; align-items: center; gap: 2px">
+                      <b style="flex: 1; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Communities</b>
+                      <button class="kw-app-icon" aria-label="Search communities" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg></button>
+                      <button class="kw-app-icon" aria-label="New" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2.1 2.1 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg></button>
+                    </div>
+                    <div style="flex: none; display: flex; gap: 22px; padding: 0 18px; border-bottom: 1px solid #e7ebf2">
+                      <sc-for list="{{comm.tabs}}" as="ct" hint-placeholder-count="2"><button class="kw-app-tab" onClick="{{ct.pick}}" aria-pressed="{{ct.pressed}}" style="height: 40px; padding: 0; border: 0; background: none; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 15px; font-weight: {{ct.weight}}; color: {{ct.color}}; box-shadow: {{ct.line}}">{{ct.label}}<sc-if value="{{ct.hasCount}}" hint-placeholder-val="{{false}}"><b style="font-size: 12px; color: #0068d6">{{ct.count}}</b></sc-if></button></sc-for>
+                    </div>
+                    <div class="kw-scroll" style="flex: 1; min-height: 0; overflow-y: auto">
+                      <sc-for list="{{comm.rows}}" as="r" hint-placeholder-count="6">
+                        <button class="kw-app-row" onClick="{{r.open}}" aria-label="{{r.aria}}" style="width: 100%; height: 74px; padding: 0 0 0 18px; border: 0; background: none; display: flex; align-items: center; gap: 12px; font-family: inherit; color: inherit; text-align: left">
+                          <sc-if value="{{r.isPhoto}}" hint-placeholder-val="{{false}}"><img src="{{r.img}}" alt="" style="width: 50px; height: 50px; border-radius: 15px; object-fit: cover; flex: none"></sc-if>
+                          <sc-if value="{{r.isMono}}" hint-placeholder-val="{{true}}"><span style="width: 50px; height: 50px; border-radius: 15px; background: {{r.bg}}; color: {{r.fg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; font-weight: 700; flex: none">{{r.mono}}</span></sc-if>
+                          <span style="flex: 1; min-width: 0; height: 100%; box-sizing: border-box; padding-right: 18px; border-bottom: 1px solid #e7ebf2; display: flex; flex-direction: column; justify-content: center; gap: 3px">
+                            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 15.5px; line-height: 20px; font-weight: {{r.weight}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{r.name}}</span><span style="font-size: 11.5px; font-weight: {{r.timeWeight}}; color: {{r.timeColor}}; flex: none">{{r.time}}</span></span>
+                            <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 20px">
+                              <sc-if value="{{r.typing}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: #0068d6">{{r.typer}} is typing<span class="kw-dots" aria-hidden="true"><i></i><i></i><i></i></span></span></sc-if>
+                              <sc-if value="{{r.notTyping}}" hint-placeholder-val="{{true}}"><span style="min-width: 0; font-size: 13.5px; line-height: 19px; color: {{r.msgColor}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><b style="font-weight: 600">{{r.who}}</b>{{r.msg}}</span></sc-if>
+                              <sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{false}}"><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 99px; background: #0068d6; color: #ffffff; font-size: 11.5px; line-height: 20px; font-weight: 700; text-align: center; flex: none">{{r.badge}}</span></sc-if>
+                              <sc-if value="{{r.hasAt}}" hint-placeholder-val="{{false}}"><span style="width: 20px; height: 20px; border-radius: 99px; background: #e8f1ff; color: #0068d6; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">@</span></sc-if>
+                            </span>
+                          </span>
+                        </button>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- COMMUNITIES: conversation -->
+                <sc-if value="{{scr.chat}}" hint-placeholder-val="{{false}}">
+                  <div class="kw-push" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+                    <div style="flex: none; height: 58px; padding: 0 6px 0 4px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #e7ebf2">
+                      <button class="kw-app-icon" onClick="{{chat.back}}" aria-label="Back to communities" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+                      <img src="{{chat.img}}" alt="" style="width: 38px; height: 38px; border-radius: 12px; object-fit: cover; flex: none">
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><b style="font-size: 15.5px; line-height: 20px">Tech Creators</b><span style="font-size: 12px; line-height: 16px; color: #5e6a82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Deborah, Tunde, Esther and you</span></span>
+                      <button class="kw-app-icon" aria-label="Community info" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none; color: #4d5b75"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></button>
+                    </div>
+                    <div class="kw-scroll" style="flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse">
+                      <div style="padding: 14px 14px 10px; display: flex; flex-direction: column; gap: 10px">
+                        <span style="align-self: center; height: 24px; padding: 0 10px; border-radius: 8px; background: #f4f6fa; display: flex; align-items: center; font-size: 11.5px; font-weight: 600; color: #4d5b75">Today</span>
+                        <div style="display: flex; align-items: flex-end; gap: 8px">
+                          <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: #e9edf4; color: #0e1b3d; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700; flex: none">D</span>
+                          <span style="max-width: 236px; background: #eef1f6; border-radius: 16px 16px 16px 4px; padding: 7px 11px 6px; font-size: 14.5px; line-height: 20px"><b style="display: block; font-size: 12.5px; line-height: 17px; color: #1e3a8a">Deborah</b>The recording from Saturday's session is now available.<span style="display: block; text-align: right; font-size: 10.5px; line-height: 13px; color: #5e6a82">10:02</span></span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end">
+                          <span style="max-width: 236px; background: #1e3a8a; color: #ffffff; border-radius: 16px 16px 4px 16px; padding: 7px 11px 6px; font-size: 14.5px; line-height: 20px">Who's going to the hackathon this weekend?<span style="display: flex; justify-content: flex-end; align-items: center; gap: 3px; font-size: 10.5px; line-height: 13px; color: #c9d8f2">10:12<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Read"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg></span></span>
+                        </div>
+                        <div style="display: flex; align-items: flex-end; gap: 8px">
+                          <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: #1e3a8a; color: #ffffff; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700; flex: none; margin-bottom: 30px">T</span>
+                          <span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+                            <span style="max-width: 236px; background: #eef1f6; border-radius: 16px 16px 16px 4px; padding: 7px 11px 6px; font-size: 14.5px; line-height: 20px"><b style="display: block; font-size: 12.5px; line-height: 17px; color: #1e3a8a">Tunde</b>Count me in. Let's form a team!<span style="display: block; text-align: right; font-size: 10.5px; line-height: 13px; color: #5e6a82">10:14</span></span>
+                            <button onClick="{{chat.react}}" aria-pressed="{{chat.reacted}}" aria-label="React" style="height: 26px; padding: 0 8px; border: 0; border-radius: 8px; background: {{chat.reactBg}}; box-shadow: {{chat.reactRing}}; color: #1e3a8a; font-family: inherit; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px">🙌 {{chat.reactCount}}</button>
+                          </span>
+                        </div>
+                        <div style="display: flex; align-items: flex-end; gap: 8px">
+                          <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: #e8f1ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700; flex: none">E</span>
+                          <span style="max-width: 236px; background: #eef1f6; border-radius: 16px 16px 16px 4px; padding: 7px 11px 6px; font-size: 14.5px; line-height: 20px"><b style="display: block; font-size: 12.5px; line-height: 17px; color: #1e3a8a">Esther</b>I'm in too. I'll handle the UI.<span style="display: block; text-align: right; font-size: 10.5px; line-height: 13px; color: #5e6a82">10:15</span></span>
+                        </div>
+                        <sc-for list="{{chat.sent}}" as="m" hint-placeholder-count="0">
+                          <div class="kw-swap" style="display: flex; flex-direction: column; align-items: flex-end">
+                            <span style="max-width: 236px; background: #1e3a8a; color: #ffffff; border-radius: 16px 16px 4px 16px; padding: 7px 11px 6px; font-size: 14.5px; line-height: 20px; overflow-wrap: anywhere">{{m.text}}<span style="display: flex; justify-content: flex-end; align-items: center; gap: 3px; font-size: 10.5px; line-height: 13px; color: #c9d8f2">Now<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Sent"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+                          </div>
+                        </sc-for>
+                        <span style="display: flex; align-items: center; gap: 8px; padding-left: 36px; font-size: 12px; font-weight: 600; color: #0068d6">Deborah is typing<span class="kw-dots" aria-hidden="true"><i></i><i></i><i></i></span></span>
+                      </div>
+                    </div>
+                    <div style="flex: none; padding: 8px 8px 30px; display: flex; align-items: center; gap: 4px; border-top: 1px solid #e7ebf2">
+                      <button class="kw-app-icon" aria-label="Attach" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+                      <label style="flex: 1; min-width: 0; height: 40px; border-radius: 20px; background: #f4f6fa; display: flex; align-items: center; padding: 0 14px">
+                        <input value="{{chat.draft}}" onChange="{{chat.onType}}" onKeyDown="{{chat.onKey}}" placeholder="Message Tech Creators" aria-label="Message Tech Creators" style="flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-family: inherit; font-size: 14.5px; color: #0e1b3d">
+                      </label>
+                      <sc-if value="{{chat.hasDraft}}" hint-placeholder-val="{{false}}"><button aria-label="Send" onClick="{{chat.send}}" style="width: 40px; height: 40px; margin-left: 2px; border: 0; border-radius: 999px; background: #0068d6; color: #ffffff; display: flex; align-items: center; justify-content: center; flex: none"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></sc-if>
+                      <sc-if value="{{chat.noDraft}}" hint-placeholder-val="{{true}}"><button class="kw-app-icon" aria-label="Send a photo" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></button></sc-if>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- DISCOVER -->
+                <sc-if value="{{scr.disc}}" hint-placeholder-val="{{false}}">
+                  <div class="kw-screen" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+                    <div style="flex: none; height: 56px; padding: 0 10px 0 18px; display: flex; align-items: center; gap: 2px">
+                      <b style="flex: 1; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Discover</b>
+                      <button class="kw-app-icon" aria-label="Search Discover" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg></button>
+                      <button class="kw-app-icon" onClick="{{disc.toSaved}}" aria-label="Saved" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                    </div>
+                    <div style="flex: none; display: flex; gap: 20px; padding: 0 18px; border-bottom: 1px solid #e7ebf2">
+                      <sc-for list="{{disc.tabs}}" as="dt" hint-placeholder-count="4"><button class="kw-app-tab" onClick="{{dt.pick}}" aria-pressed="{{dt.pressed}}" style="height: 40px; padding: 0; border: 0; background: none; font-family: inherit; font-size: 15px; font-weight: {{dt.weight}}; color: {{dt.color}}; box-shadow: {{dt.line}}; white-space: nowrap">{{dt.label}}</button></sc-for>
+                    </div>
+                    <div class="kw-scroll" style="flex: 1; min-height: 0; overflow-y: auto">
+                      <span style="display: block; padding: 12px 18px 2px; font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #5e6a82">SAMPLE LISTINGS FOR ILLUSTRATION</span>
+                      <sc-for list="{{disc.items}}" as="d" hint-placeholder-count="6">
+                        <sc-if value="{{d.isHead}}" hint-placeholder-val="{{false}}"><span style="display: block; padding: 16px 18px 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; line-height: 22px; font-weight: 600">{{d.title}}</span></sc-if>
+                        <sc-if value="{{d.isFeature}}" hint-placeholder-val="{{false}}">
+                          <div style="padding: 8px 18px 6px">
+                            <div style="position: relative; border-radius: 16px; background: #1e3a8a; color: #ffffff; padding: 16px; display: flex; flex-direction: column; gap: 18px">
+                              <span style="display: flex; flex-direction: column"><span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #c9d8f2">{{d.mon}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 50px; line-height: 50px; font-weight: 700; letter-spacing: -1.5px">{{d.day}}</b></span>
+                              <span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #c9d8f2">{{d.kind}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; line-height: 24px; font-weight: 600">{{d.title}}</b><span style="font-size: 13px; line-height: 18px; color: #c9d8f2">{{d.meta}}</span></span>
+                              <button onClick="{{d.toggle}}" aria-pressed="{{d.pressed}}" aria-label="Save {{d.title}}" style="position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; border: 0; border-radius: 12px; background: none; color: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{d.fillDark}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                            </div>
+                          </div>
+                        </sc-if>
+                        <sc-if value="{{d.isRow}}" hint-placeholder-val="{{true}}">
+                          <div style="display: flex; align-items: center; gap: 12px; padding: 9px 8px 9px 18px">
+                            <span style="width: 46px; flex: none; display: flex; justify-content: center">
+                              <sc-if value="{{d.isDate}}" hint-placeholder-val="{{true}}"><span style="display: flex; flex-direction: column; align-items: center"><span style="font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: .6px; color: #0068d6">{{d.mon}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; line-height: 26px; font-weight: 700">{{d.day}}</b></span></sc-if>
+                              <sc-if value="{{d.isOrg}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: {{d.bg}}; color: {{d.fg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700">{{d.mono}}</span></sc-if>
+                              <sc-if value="{{d.isRange}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: #1e3a8a; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center"><b style="font-size: 12px; line-height: 15px">{{d.range}}</b><span style="font-size: 9px; line-height: 11px; font-weight: 700; letter-spacing: .6px; color: #c9d8f2">{{d.mon}}</span></span></sc-if>
+                              <sc-if value="{{d.isDeadline}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: #e8f1ff; color: #1e3a8a; display: flex; flex-direction: column; align-items: center; justify-content: center"><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; line-height: 18px">{{d.day}}</b><span style="font-size: 9px; line-height: 11px; font-weight: 700; letter-spacing: .6px">{{d.mon}}</span></span></sc-if>
+                              <sc-if value="{{d.isCover}}" hint-placeholder-val="{{false}}"><img src="{{d.img}}" alt="" style="width: 42px; height: 54px; border-radius: 8px; object-fit: cover"></sc-if>
+                              <sc-if value="{{d.isVideo}}" hint-placeholder-val="{{false}}"><span style="width: 42px; height: 54px; border-radius: 8px; background: #0e1b3d; color: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></sc-if>
+                              <sc-if value="{{d.isDoc}}" hint-placeholder-val="{{false}}"><span style="width: 42px; height: 54px; border-radius: 8px; background: #f4f6fa; box-shadow: inset 0 0 0 1px #e7ebf2; color: #4d5b75; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5M9 13h6M9 17h4"/></svg></span></sc-if>
+                            </span>
+                            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+                              <span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #5e6a82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.kind}}<sc-if value="{{d.hasWarn}}" hint-placeholder-val="{{false}}"><span style="color: #b45309">{{d.warn}}</span></sc-if></span>
+                              <b style="font-size: 14.5px; line-height: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.title}}</b>
+                              <span style="font-size: 12.5px; line-height: 17px; color: #4d5b75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.meta}}</span>
+                            </span>
+                            <button onClick="{{d.toggle}}" aria-pressed="{{d.pressed}}" aria-label="Save {{d.title}}" style="width: 40px; height: 40px; border: 0; border-radius: 12px; background: none; color: {{d.color}}; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{d.fill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                          </div>
+                        </sc-if>
+                      </sc-for>
+                      <div style="height: 14px"></div>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- PROFILE -->
+                <sc-if value="{{scr.prof}}" hint-placeholder-val="{{false}}">
+                  <div class="kw-screen" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+                    <div style="flex: none; height: 56px; padding: 0 10px 0 18px; display: flex; align-items: center; gap: 2px">
+                      <b style="flex: 1; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Profile</b>
+                      <button class="kw-app-icon" aria-label="Settings" style="width: 40px; height: 40px; border: 0; background: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0e1b3d; flex: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                    </div>
+                    <div class="kw-scroll" style="flex: 1; min-height: 0; overflow-y: auto">
+                      <div style="padding: 6px 18px 0; display: flex; align-items: center; gap: 16px">
+                        <img src="{{me.img}}" alt="{{me.name}}" style="width: 80px; height: 80px; border-radius: 999px; object-fit: cover; flex: none">
+                        <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                          <b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 23px; line-height: 27px; font-weight: 600; letter-spacing: -0.4px">{{me.name}}</b>
+                          <span style="font-size: 14px; line-height: 19px; color: #5e6a82">{{me.handle}}</span>
+                          <span style="font-size: 13.5px; line-height: 19px; color: #4d5b75">{{me.headline}}</span>
+                        </span>
+                      </div>
+                      <p style="margin: 14px 18px 0; font-size: 15px; line-height: 22px">{{me.bio}}</p>
+                      <div style="padding: 14px 18px 0"><button class="kw-quiet" aria-label="Edit profile" style="width: 100%; height: 40px; border: 0; border-radius: 10px; background: #f4f6fa; font-family: inherit; font-size: 14px; font-weight: 600; color: #0e1b3d">Edit profile</button></div>
+                      <div style="padding: 18px 18px 0; display: flex; flex-direction: column; gap: 9px">
+                        <span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #5e6a82">INTERESTS</span>
+                        <span style="display: flex; flex-wrap: wrap; gap: 6px">
+                          <sc-for list="{{me.interests}}" as="i" hint-placeholder-count="3"><span style="height: 28px; padding: 0 10px; border-radius: 8px; box-shadow: inset 0 0 0 1px #dfe4ed; display: flex; align-items: center; font-size: 12.5px; font-weight: 600">{{i}}</span></sc-for>
+                        </span>
+                      </div>
+                      <div style="padding: 18px 18px 0; display: flex; flex-direction: column; gap: 10px">
+                        <span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #5e6a82">COMMUNITIES</span><button onClick="{{me.toComm}}" style="border: 0; background: none; padding: 4px 0; font-family: inherit; font-size: 13px; font-weight: 600; color: #0068d6">See all</button></span>
+                        <span style="display: flex; gap: 8px">
+                          <sc-for list="{{me.comms}}" as="c" hint-placeholder-count="5">
+                            <sc-if value="{{c.isPhoto}}" hint-placeholder-val="{{false}}"><img src="{{c.img}}" alt="{{c.name}}" style="width: 48px; height: 48px; border-radius: 15px; object-fit: cover"></sc-if>
+                            <sc-if value="{{c.isMono}}" hint-placeholder-val="{{true}}"><span role="img" aria-label="{{c.name}}" style="width: 48px; height: 48px; border-radius: 15px; background: {{c.bg}}; color: {{c.fg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700">{{c.mono}}</span></sc-if>
+                          </sc-for>
+                        </span>
+                      </div>
+                      <div style="margin-top: 18px; display: flex; gap: 22px; padding: 0 18px; border-bottom: 1px solid #e7ebf2">
+                        <sc-for list="{{me.tabs}}" as="pt" hint-placeholder-count="2"><button class="kw-app-tab" onClick="{{pt.pick}}" aria-pressed="{{pt.pressed}}" style="height: 40px; padding: 0; border: 0; background: none; font-family: inherit; font-size: 15px; font-weight: {{pt.weight}}; color: {{pt.color}}; box-shadow: {{pt.line}}">{{pt.label}}</button></sc-for>
+                      </div>
+                      <sc-if value="{{me.showPosts}}" hint-placeholder-val="{{true}}">
+                        <div class="kw-swap" style="padding: 14px 18px 4px">
+                          <span style="display: block; font-size: 12.5px; line-height: 17px; color: #5e6a82">{{me.post.ctx}} · {{me.post.time}}</span>
+                          <p style="margin: 6px 0 0; font-size: 15px; line-height: 22px">{{me.post.text}}</p>
+                          <img src="{{me.post.media}}" alt="{{me.post.mediaAlt}}" style="display: block; margin-top: 12px; width: 100%; height: 170px; border-radius: 12px; object-fit: cover; background: #eef1f6">
+                          <span style="display: flex; align-items: center; gap: 14px; height: 42px; font-size: 13px; font-weight: 600; color: #4d5b75"><span style="display: flex; align-items: center; gap: 5px; color: {{me.post.likeColor}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="{{me.post.likeFill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>{{me.post.likes}}</span><span style="display: flex; align-items: center; gap: 5px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>{{me.post.comments}}</span></span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{me.showSaved}}" hint-placeholder-val="{{false}}">
+                        <div class="kw-swap">
+                          <sc-if value="{{me.hasSaved}}" hint-placeholder-val="{{true}}">
+                            <sc-for list="{{me.saved}}" as="d" hint-placeholder-count="2">
+                              <sc-if value="{{d.isHead}}" hint-placeholder-val="{{false}}"><span style="display: block; padding: 16px 18px 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; line-height: 22px; font-weight: 600">{{d.title}}</span></sc-if>
+                        <sc-if value="{{d.isFeature}}" hint-placeholder-val="{{false}}">
+                          <div style="padding: 8px 18px 6px">
+                            <div style="position: relative; border-radius: 16px; background: #1e3a8a; color: #ffffff; padding: 16px; display: flex; flex-direction: column; gap: 18px">
+                              <span style="display: flex; flex-direction: column"><span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #c9d8f2">{{d.mon}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 50px; line-height: 50px; font-weight: 700; letter-spacing: -1.5px">{{d.day}}</b></span>
+                              <span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #c9d8f2">{{d.kind}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; line-height: 24px; font-weight: 600">{{d.title}}</b><span style="font-size: 13px; line-height: 18px; color: #c9d8f2">{{d.meta}}</span></span>
+                              <button onClick="{{d.toggle}}" aria-pressed="{{d.pressed}}" aria-label="Save {{d.title}}" style="position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; border: 0; border-radius: 12px; background: none; color: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{d.fillDark}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                            </div>
+                          </div>
+                        </sc-if>
+                        <sc-if value="{{d.isRow}}" hint-placeholder-val="{{true}}">
+                          <div style="display: flex; align-items: center; gap: 12px; padding: 9px 8px 9px 18px">
+                            <span style="width: 46px; flex: none; display: flex; justify-content: center">
+                              <sc-if value="{{d.isDate}}" hint-placeholder-val="{{true}}"><span style="display: flex; flex-direction: column; align-items: center"><span style="font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: .6px; color: #0068d6">{{d.mon}}</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; line-height: 26px; font-weight: 700">{{d.day}}</b></span></sc-if>
+                              <sc-if value="{{d.isOrg}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: {{d.bg}}; color: {{d.fg}}; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700">{{d.mono}}</span></sc-if>
+                              <sc-if value="{{d.isRange}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: #1e3a8a; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center"><b style="font-size: 12px; line-height: 15px">{{d.range}}</b><span style="font-size: 9px; line-height: 11px; font-weight: 700; letter-spacing: .6px; color: #c9d8f2">{{d.mon}}</span></span></sc-if>
+                              <sc-if value="{{d.isDeadline}}" hint-placeholder-val="{{false}}"><span style="width: 44px; height: 44px; border-radius: 13px; background: #e8f1ff; color: #1e3a8a; display: flex; flex-direction: column; align-items: center; justify-content: center"><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; line-height: 18px">{{d.day}}</b><span style="font-size: 9px; line-height: 11px; font-weight: 700; letter-spacing: .6px">{{d.mon}}</span></span></sc-if>
+                              <sc-if value="{{d.isCover}}" hint-placeholder-val="{{false}}"><img src="{{d.img}}" alt="" style="width: 42px; height: 54px; border-radius: 8px; object-fit: cover"></sc-if>
+                              <sc-if value="{{d.isVideo}}" hint-placeholder-val="{{false}}"><span style="width: 42px; height: 54px; border-radius: 8px; background: #0e1b3d; color: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg></span></sc-if>
+                              <sc-if value="{{d.isDoc}}" hint-placeholder-val="{{false}}"><span style="width: 42px; height: 54px; border-radius: 8px; background: #f4f6fa; box-shadow: inset 0 0 0 1px #e7ebf2; color: #4d5b75; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5M9 13h6M9 17h4"/></svg></span></sc-if>
+                            </span>
+                            <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+                              <span style="font-size: 10.5px; line-height: 14px; font-weight: 700; letter-spacing: .8px; color: #5e6a82; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.kind}}<sc-if value="{{d.hasWarn}}" hint-placeholder-val="{{false}}"><span style="color: #b45309">{{d.warn}}</span></sc-if></span>
+                              <b style="font-size: 14.5px; line-height: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.title}}</b>
+                              <span style="font-size: 12.5px; line-height: 17px; color: #4d5b75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.meta}}</span>
+                            </span>
+                            <button onClick="{{d.toggle}}" aria-pressed="{{d.pressed}}" aria-label="Save {{d.title}}" style="width: 40px; height: 40px; border: 0; border-radius: 12px; background: none; color: {{d.color}}; display: flex; align-items: center; justify-content: center; flex: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{d.fill}}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></button>
+                          </div>
+                        </sc-if>
+                            </sc-for>
+                          </sc-if>
+                          <sc-if value="{{me.noSaved}}" hint-placeholder-val="{{false}}">
+                            <div style="padding: 36px 30px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+                              <span style="width: 48px; height: 48px; border-radius: 15px; background: #f4f6fa; color: #4d5b75; display: flex; align-items: center; justify-content: center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+                              <b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; line-height: 23px; font-weight: 600">Nothing saved yet</b>
+                              <span style="font-size: 13.5px; line-height: 20px; color: #4d5b75">Save events, opportunities and resources from Discover to find them here.</span>
+                            </div>
+                          </sc-if>
+                        </div>
+                      </sc-if>
+                      <div style="height: 14px"></div>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- app navigation -->
+                <sc-if value="{{app.showNav}}" hint-placeholder-val="{{true}}">
+                  <nav aria-label="App navigation, preview" style="flex: none; height: 80px; box-sizing: border-box; padding: 6px 8px 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: #ffffff; border-top: 1px solid #e7ebf2">
+                    <button onClick="{{app.nav.feed.pick}}" aria-current="{{app.nav.feed.current}}" style="border: 0; background: none; padding: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 3px; font-family: inherit; font-size: 11.5px; line-height: 14px; color: {{app.nav.feed.color}}; font-weight: {{app.nav.feed.weight}}"><span style="position: relative; display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>Feed</button>
+                    <button onClick="{{app.nav.communities.pick}}" aria-current="{{app.nav.communities.current}}" style="border: 0; background: none; padding: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 3px; font-family: inherit; font-size: 11.5px; line-height: 14px; color: {{app.nav.communities.color}}; font-weight: {{app.nav.communities.weight}}"><span style="position: relative; display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 8.5h8M8 12.5h5"/></svg><sc-if value="{{app.navDot}}" hint-placeholder-val="{{true}}"><span style="position: absolute; top: -1px; right: -2px; width: 8px; height: 8px; border-radius: 99px; background: #0068d6; box-shadow: 0 0 0 2px #ffffff"></span></sc-if></span>Communities</button>
+                    <button onClick="{{app.nav.discover.pick}}" aria-current="{{app.nav.discover.current}}" style="border: 0; background: none; padding: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 3px; font-family: inherit; font-size: 11.5px; line-height: 14px; color: {{app.nav.discover.color}}; font-weight: {{app.nav.discover.weight}}"><span style="position: relative; display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m15.8 8.2-1.9 5.7-5.7 1.9 1.9-5.7z"/></svg></span>Discover</button>
+                    <button onClick="{{app.nav.profile.pick}}" aria-current="{{app.nav.profile.current}}" style="border: 0; background: none; padding: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 3px; font-family: inherit; font-size: 11.5px; line-height: 14px; color: {{app.nav.profile.color}}; font-weight: {{app.nav.profile.weight}}"><span style="position: relative; display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Profile</button>
+                  </nav>
+                </sc-if>
+
+                <sc-if value="{{app.note}}" hint-placeholder-val="{{false}}">
+                  <span class="kw-swap" role="status" style="position: absolute; left: 18px; right: 18px; bottom: 92px; padding: 11px 14px; border-radius: 12px; background: #0e1b3d; color: #ffffff; font-size: 13px; line-height: 18px; text-align: center">In this preview, only Tech Creators opens.</span>
+                </sc-if>
+                <span aria-hidden="true" style="position: absolute; bottom: 8px; left: 113px; width: 134px; height: 5px; border-radius: 99px; background: #0e1b3d"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 13px; line-height: 18px; color: #5e6a82; text-align: center"><span style="font-weight: 600; color: #4d5b75">{{cur.hint}}</span><span>Sample content, shown for illustration.</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section aria-labelledby="how" style="background: #ffffff; border-top: 1px solid #e7ebf2">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.sec}}px {{L.pad}}px">
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: {{L.headGap}}px">
+        <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">HOW KINNOC WORKS</span>
+        <h2 id="how" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h2}}px; line-height: {{L.h2lh}}px; font-weight: 600; letter-spacing: -1px">Three steps to your people.</h2>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: {{L.stepCols}}; gap: {{L.stepGap}}px">
+        <li style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; box-shadow: inset 0 3px 0 #0e1b3d">
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: #5e6a82">Step 1</span>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Create your profile</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 24px; color: #4d5b75">Tell people who you are and pick your interests. Kinnoc suggests communities to start with.</p>
+          <div aria-hidden="true" style="margin-top: 6px; border-radius: 16px; background: #f4f6fa; padding: 18px; display: flex; flex-direction: column; gap: 12px; min-height: 132px; box-sizing: border-box">
+            <span style="display: flex; align-items: center; gap: 10px"><img src="/_blob/3059bb958e048bf246c0ae398ac47016" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover"><span style="display: flex; flex-direction: column"><b style="font-size: 14px">{{who.p4}}</b><span style="font-size: 12px; color: #5e6a82">Choosing interests</span></span></span>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px"><span style="height: 26px; padding: 0 9px; border-radius: 8px; background: #ffffff; box-shadow: inset 0 0 0 1px #dfe4ed; font-size: 12px; font-weight: 600; display: flex; align-items: center">Product design</span><span style="height: 26px; padding: 0 9px; border-radius: 8px; background: #0e1b3d; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center">Startups</span><span style="height: 26px; padding: 0 9px; border-radius: 8px; background: #ffffff; box-shadow: inset 0 0 0 1px #dfe4ed; font-size: 12px; font-weight: 600; display: flex; align-items: center">Web development</span></span>
+          </div>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; box-shadow: inset 0 3px 0 #0e1b3d">
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: #5e6a82">Step 2</span>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Join the conversation</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 24px; color: #4d5b75">Jump into community chats, ask questions, share what you're working on and help others.</p>
+          <div aria-hidden="true" style="margin-top: 6px; border-radius: 16px; background: #f4f6fa; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-height: 132px; box-sizing: border-box">
+            <span style="align-self: flex-start; background: #ffffff; border-radius: 4px 16px 16px 16px; padding: 8px 12px; font-size: 13px; line-height: 19px">Anyone up for the hackathon?</span>
+            <span style="align-self: flex-end; background: #1e3a8a; color: #ffffff; border-radius: 16px 4px 16px 16px; padding: 8px 12px; font-size: 13px; line-height: 19px">Count me in. I'll do the UI.</span>
+            <span style="align-self: flex-end; font-size: 11px; color: #5e6a82">Read</span>
+          </div>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 14px; padding-top: 22px; box-shadow: inset 0 3px 0 #0e1b3d">
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: #5e6a82">Step 3</span>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px">Discover what's next</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 24px; color: #4d5b75">Save events, internships, scholarships and guides that fit where you're heading.</p>
+          <div aria-hidden="true" style="margin-top: 6px; border-radius: 16px; background: #f4f6fa; padding: 14px 18px; display: flex; flex-direction: column; min-height: 132px; box-sizing: border-box">
+            <span style="display: flex; align-items: center; gap: 12px; padding: 6px 0 10px; border-bottom: 1px solid #e7ebf2"><span style="width: 36px; display: flex; flex-direction: column; align-items: center"><span style="font-size: 9px; font-weight: 700; letter-spacing: .6px; color: #0068d6">NOV</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; line-height: 22px">9</b></span><b style="flex: 1; font-size: 14px">Campus Tech Week</b><svg width="18" height="18" viewBox="0 0 24 24" fill="#0068d6" stroke="#0068d6" stroke-width="1.75" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+            <span style="display: flex; align-items: center; gap: 12px; padding: 10px 0 4px"><span style="width: 36px; height: 36px; border-radius: 11px; background: #e8f1ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px; font-weight: 700">B</span><span style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 10px; font-weight: 700; letter-spacing: .8px; color: #5e6a82">INTERNSHIP</span><b style="font-size: 14px">Frontend Developer</b></span><svg width="18" height="18" viewBox="0 0 24 24" fill="#0068d6" stroke="#0068d6" stroke-width="1.75" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DISCOVER -->
+  <section id="discover" class="kw-dark" aria-labelledby="disc" style="background: #0e1b3d; color: #ffffff">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.sec}}px {{L.pad}}px; display: grid; grid-template-columns: {{L.discCols}}; gap: {{L.colGap}}px; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 18px">
+        <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #9fb3d9">DISCOVER</span>
+        <h2 id="disc" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h2}}px; line-height: {{L.h2lh}}px; font-weight: 600; letter-spacing: -1px; text-wrap: balance">More than conversations. <span style="color: #7fb8ff">Real opportunities.</span></h2>
+        <p style="margin: 0; max-width: 460px; font-size: {{L.body}}px; line-height: {{L.bodylh}}px; color: #c9d8f2">Events, internships, jobs, scholarships, hackathons and learning resources shared by communities and organisers, each shaped so you can tell them apart at a glance.</p>
+        <ul style="list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 22px; color: #c9d8f2">
+          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 28px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; color: #ffffff; text-align: center">24</span>Events lead with the date</li>
+          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 28px; height: 28px; border-radius: 9px; background: #e8f1ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700">B</span>Jobs and internships lead with who's hiring and the deadline</li>
+          <li style="display: flex; gap: 12px; align-items: center"><span style="width: 28px; height: 28px; border-radius: 9px; background: #1e3a8a; box-shadow: inset 0 0 0 1px #3d5ba8"></span>Scholarships and hackathons lead with the dates that matter</li>
+          <li style="display: flex; gap: 12px; align-items: center"><img src="/_blob/2c78dd7865515ca7c3ab474ba9188d41" alt="" style="width: 28px; height: 34px; border-radius: 6px; object-fit: cover; margin: 0 0"><span>Resources lead with the cover and how long they take</span></li>
+        </ul>
+        <a class="kw-light" href="#discover-app" style="align-self: flex-start; margin-top: 8px; height: 52px; padding: 0 22px; border-radius: 12px; background: #ffffff; color: #0e1b3d; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; text-decoration: none">Explore Discover<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0">
+        <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 12px; line-height: 16px; color: #9fb3d9"><b style="letter-spacing: 1px">EXAMPLE LISTINGS</b><span>Shown for illustration, not live opportunities</span></span>
+        <div style="display: grid; grid-template-columns: {{L.boardCols}}; gap: 14px">
+          <article style="border-radius: 20px; background: #1a2b55; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: {{L.tileH}}px; box-sizing: border-box">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between"><span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #9fb3d9">SAT · OCT</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 64px; line-height: 60px; font-weight: 700; letter-spacing: -2px">24</b></span><img src="/_blob/5d2c54945ece8b7cfdf1cea85edfa617" alt="" style="width: 66px; height: 60px; border-radius: 12px; object-fit: cover"></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #9fb3d9">EVENT</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; line-height: 27px; font-weight: 600">Lagos Tech Meetup</b><span style="font-size: 14px; color: #c9d8f2">Victoria Island · hosted by Tech Creators</span></div>
+          </article>
+          <article style="border-radius: 20px; background: #ffffff; color: #0e1b3d; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: {{L.tileH}}px; box-sizing: border-box">
+            <span style="width: 56px; height: 56px; border-radius: 17px; background: #e8f1ff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700">B</span>
+            <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">INTERNSHIP · REMOTE · CLOSES 15 NOV</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; line-height: 27px; font-weight: 600">Frontend Developer (Internship)</b><span style="font-size: 14px; color: #4d5b75">Brivent Global Innovations</span></div>
+          </article>
+          <article style="border-radius: 20px; background: #e8f1ff; color: #1e3a8a; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: {{L.tileH}}px; box-sizing: border-box">
+            <span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px">48 HOURS · ONLINE</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; line-height: 50px; font-weight: 700; letter-spacing: -1.5px">14–16 Nov</b></span>
+            <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #3d5ba8">HACKATHON · TEAMS OF 2–4</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; line-height: 27px; font-weight: 600; color: #0e1b3d">Fintech Build Weekend</b><span style="font-size: 14px; color: #1e3a8a">Builders Lagos</span></div>
+          </article>
+          <article style="border-radius: 20px; background: #1a2b55; padding: 22px; display: flex; gap: 18px; align-items: flex-end; min-height: {{L.tileH}}px; box-sizing: border-box">
+            <img src="/_blob/2c78dd7865515ca7c3ab474ba9188d41" alt="" style="width: 84px; height: 108px; border-radius: 10px; object-fit: cover; flex: none">
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #9fb3d9">GUIDE · 12 MIN READ</span><b style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; line-height: 27px; font-weight: 600">System Design Roadmap</b><span style="font-size: 14px; color: #c9d8f2">by TechWithTobi</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITIES -->
+  <section id="communities" aria-labelledby="comm" style="background: #ffffff">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.sec}}px {{L.pad}}px; display: grid; grid-template-columns: {{L.commCols}}; gap: {{L.colGap}}px; align-items: center">
+      <div style="order: {{L.convOrder}}; border-radius: {{F.stageR}}px; background: #f4f6fa; padding: {{L.convPad}}px; display: flex; justify-content: center; min-width: 0">
+        <div aria-label="Example community conversation" role="img" style="width: 100%; max-width: 420px; background: #ffffff; border-radius: 20px; box-shadow: 0 24px 60px rgba(14,27,61,.14), 0 0 0 1px rgba(14,27,61,.05); overflow: hidden">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid #e7ebf2"><img src="/_blob/28bdda1057305c4ad397e945216f9f2f" alt="" style="width: 38px; height: 38px; border-radius: 12px; object-fit: cover"><span style="display: flex; flex-direction: column"><b style="font-size: 15px">Tech Creators</b><span style="font-size: 12px; color: #5e6a82">Group conversation</span></span></div>
+          <div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; gap: 10px"><img src="/_blob/430c0f09899bf1d66967a5f938945709" alt="" style="width: 30px; height: 30px; border-radius: 999px; object-fit: cover; margin-top: 18px"><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; color: #5e6a82"><b style="color: #0e1b3d">{{who.p3}}</b>  10:12 AM</span><span style="background: #eef1f6; border-radius: 4px 16px 16px 16px; padding: 8px 12px; font-size: 14px; line-height: 20px; max-width: 260px">Who's going to the hackathon this weekend?</span></span></div>
+            <div style="display: flex; gap: 10px"><img src="/_blob/65808a0ff7af21fa969efbf886b5fc2d" alt="" style="width: 30px; height: 30px; border-radius: 999px; object-fit: cover; margin-top: 18px"><span style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start"><span style="font-size: 12px; color: #5e6a82"><b style="color: #0e1b3d">{{who.p1}}</b>  10:14 AM</span><span style="background: #eef1f6; border-radius: 4px 16px 16px 16px; padding: 8px 12px; font-size: 14px; line-height: 20px; max-width: 260px">Count me in. Let's form a team!</span><span style="height: 24px; padding: 0 8px; border-radius: 8px; background: #e8f1ff; color: #1e3a8a; font-size: 12px; font-weight: 600; display: flex; align-items: center; box-shadow: inset 0 0 0 1px #afc3e8">🙌 3</span></span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px"><span style="background: #1e3a8a; color: #ffffff; border-radius: 16px 4px 16px 16px; padding: 8px 12px; font-size: 14px; line-height: 20px; max-width: 260px">I'm in too. I'll handle the UI.</span><span style="font-size: 11px; color: #5e6a82">10:15 AM · Read</span></div>
+            <span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: #0068d6"><img src="/_blob/d74090200f650cedaa9de3c5d899d211" alt="" style="width: 20px; height: 20px; border-radius: 999px; object-fit: cover">{{who.p2}} is typing<span class="kw-dots"><i></i><i></i><i></i></span></span>
+          </div>
+        </div>
+      </div>
+      <div style="order: 1; display: flex; flex-direction: column; gap: 18px; min-width: 0">
+        <span style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">COMMUNITIES</span>
+        <h2 id="comm" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.h2}}px; line-height: {{L.h2lh}}px; font-weight: 600; letter-spacing: -1px; text-wrap: balance">Meaningful communities. Real conversations.</h2>
+        <p style="margin: 0; max-width: 480px; font-size: {{L.body}}px; line-height: {{L.bodylh}}px; color: #4d5b75">Every community has one group conversation. No channels to manage, nothing hidden in a sidebar: just the people and the chat.</p>
+        <div style="display: flex; flex-direction: column; margin-top: 4px">
+          <sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid #e7ebf2">
+              <span style="width: 64px; flex: none; font-size: 11px; line-height: 14px; font-weight: 700; letter-spacing: 1px; color: #5e6a82">{{k.kind}}</span>
+              <span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; background: {{k.bg}}; color: {{k.fg}}">{{k.mono}}</span>
+              <span style="font-size: 16px; line-height: 22px; font-weight: 600">{{k.name}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <a class="kw-quiet" href="#communities-app" style="align-self: flex-start; margin-top: 8px; height: 52px; padding: 0 22px; border-radius: 12px; background: #f4f6fa; color: #0e1b3d; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; text-decoration: none">Explore communities<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section id="join" aria-labelledby="cta" style="background: #f4f6fa">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.sec}}px {{L.pad}}px; display: grid; grid-template-columns: {{L.ctaCols}}; gap: {{L.colGap}}px; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <h2 id="cta" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.ctaH}}px; line-height: {{L.ctaLh}}px; font-weight: 600; letter-spacing: {{L.h1ls}}px; text-wrap: balance">Your next community <span style="color: #0068d6">starts here.</span></h2>
+        <p style="margin: 0; max-width: 520px; font-size: {{L.lead}}px; line-height: {{L.leadlh}}px; color: #4d5b75">Connect with people who share your interests, learn from each other and see what you can build together.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a class="kw-primary" href="#join-start" style="height: 56px; padding: 0 26px; border-radius: 12px; background: #0068d6; color: #ffffff; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; text-decoration: none; flex: {{L.ctaFlex}}; justify-content: center">Join Kinnoc<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div aria-hidden="true" style="display: grid; grid-template-columns: repeat(3, {{L.ctaCell}}px); grid-auto-rows: {{L.ctaCell}}px; gap: 12px; justify-content: {{L.ctaJustify}}">
+        <img src="/_blob/3059bb958e048bf246c0ae398ac47016" alt="" style="width: 100%; height: 100%; border-radius: 999px; object-fit: cover">
+        <span style="border-radius: 30%; background: #1e3a8a; color: #ffffff; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.ctaMono}}px; font-weight: 700">U</span>
+        <img src="/_blob/65808a0ff7af21fa969efbf886b5fc2d" alt="" style="width: 100%; height: 100%; border-radius: 999px; object-fit: cover">
+        <span style="border-radius: 30%; background: #ffffff; color: #1e3a8a; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.ctaMono}}px; font-weight: 700; box-shadow: inset 0 0 0 1px #dfe4ed">DH</span>
+        <img src="/_blob/d74090200f650cedaa9de3c5d899d211" alt="" style="width: 100%; height: 100%; border-radius: 999px; object-fit: cover">
+        <span style="border-radius: 30%; background: #0068d6; color: #ffffff; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: {{L.ctaMono}}px; font-weight: 700">CG</span>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="about" style="background: #ffffff; border-top: 1px solid #e7ebf2">
+    <div style="max-width: 1296px; margin: 0 auto; padding: {{L.footTop}}px {{L.pad}}px 32px; display: grid; grid-template-columns: {{L.footCols}}; gap: 32px 24px">
+      <div style="grid-column: {{L.footBrandSpan}}; display: flex; flex-direction: column; gap: 14px">
+        <img src="/_blob/10e1f593c83e03ff16c25d74d2c6504a" alt="Kinnoc" style="height: 34px; width: 70px; object-fit: contain; object-position: left center">
+        <p style="margin: 0; max-width: 320px; font-size: 15px; line-height: 23px; color: #4d5b75">A home for students, creators and professionals to connect, share ideas and find what's next.</p>
+      </div>
+      <nav aria-label="Product" style="display: flex; flex-direction: column; gap: 4px"><b style="font-size: 12px; letter-spacing: 1px; color: #5e6a82; margin-bottom: 6px">PRODUCT</b><a class="kw-link kw-under" href="#product" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Feed</a><a class="kw-link kw-under" href="#communities" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Communities</a><a class="kw-link kw-under" href="#discover" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Discover</a><a class="kw-link kw-under" href="#product" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Profile</a></nav>
+      <nav aria-label="Company" style="display: flex; flex-direction: column; gap: 4px"><b style="font-size: 12px; letter-spacing: 1px; color: #5e6a82; margin-bottom: 6px">COMPANY</b><a class="kw-link kw-under" href="#about-page" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">About</a><a class="kw-link kw-under" href="#contact" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Contact</a></nav>
+      <nav aria-label="Legal" style="display: flex; flex-direction: column; gap: 4px"><b style="font-size: 12px; letter-spacing: 1px; color: #5e6a82; margin-bottom: 6px">LEGAL</b><a class="kw-link kw-under" href="#privacy" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Privacy Policy</a><a class="kw-link kw-under" href="#terms" style="padding: 6px 0; font-size: 15px; color: #0e1b3d; text-decoration: none">Terms of Service</a></nav>
+      <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 22px; margin-top: 8px; border-top: 1px solid #e7ebf2; font-size: 13px; line-height: 18px; color: #5e6a82">
+        <span>© 2026 Kinnoc. Built by Brivent Global Innovations Limited.</span>
+        <span>Find your people. Join the conversation. Discover what's next.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"feature":{"editor":"enum","options":["feed","communities","discover","profile"],"default":"feed"},"$preview":{"width":1440,"height":6250}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+  renderVals() {
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || el === this._el) return;
+        this._el = el;
+        if (this._ro) this._ro.disconnect();
+        if (typeof ResizeObserver === 'undefined') { this.setState({ w: el.clientWidth }); return; }
+        this._ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && cw !== ((this.state && this.state.w) || 0)) this.setState({ w: cw });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const s = this.state || {};
+    const w = s.w || 1440;
+    const D = w >= 1024, T = !D && w >= 640, M = w < 640;
+    const pick = (d, t, m) => (D ? d : (T ? t : m));
+    const pad = pick(48, 32, 20);
+    const inner = Math.min(w, 1296) - pad * 2;
+
+    const L = {
+      D: D, notD: !D, pad: pad,
+      navH: pick(76, 68, 60), logoH: pick(40, 36, 34),
+      heroTop: pick(88, 64, 40), heroBottom: pick(104, 88, 64), heroGap: pick(64, 56, 40), heroStack: pick(22, 20, 18),
+      heroCols: D ? 'minmax(0, 1fr) auto' : 'minmax(0, 1fr)',
+      heroRowGap: pick(44, 32, 24), heroTextTop: pick(8, 0, 0),
+      mosaicJustify: D ? 'flex-end' : 'flex-start',
+      h1: pick(86, 64, 42), h1lh: pick(86, 66, 44), h1ls: pick(-3, -2, -1.3),
+      h2: pick(50, 42, 34), h2lh: pick(54, 46, 38),
+      lead: pick(20, 19, 17), leadlh: pick(30, 28, 26),
+      body: pick(17, 17, 16), bodylh: pick(27, 26, 25),
+      ctaFlex: M ? '1 1 100%' : '0 0 auto',
+      sec: pick(120, 96, 72), colGap: pick(72, 48, 36), headGap: pick(56, 44, 32),
+      twoCols: D ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
+      whoRowCols: D ? '128px minmax(0, 1fr) auto' : (T ? '120px minmax(0, 1fr)' : '88px minmax(0, 1fr)'),
+      whoRowGap: pick(24, 20, 16), personW: pick(128, 120, 88), personH: pick(92, 86, 72), whoTitle: pick(26, 24, 21),
+      stepCols: M ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', stepGap: pick(40, 24, 44),
+      discCols: D ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
+      boardCols: M ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', tileH: pick(248, 232, 200),
+      commCols: D ? 'minmax(0, 7fr) minmax(0, 5fr)' : 'minmax(0, 1fr)', convOrder: D ? 0 : 2, convPad: pick(48, 40, 16),
+      ctaCols: D ? 'minmax(0, 7fr) minmax(0, 5fr)' : 'minmax(0, 1fr)',
+      ctaH: pick(64, 54, 40), ctaLh: pick(66, 56, 42),
+      ctaCell: pick(104, 96, Math.floor((inner - 24) / 3)), ctaMono: pick(30, 28, 26), ctaJustify: D ? 'end' : 'start',
+      footTop: pick(64, 56, 48),
+      footCols: D ? 'minmax(0, 4fr) repeat(3, minmax(0, 2fr))' : (T ? 'minmax(0, 2fr) repeat(3, minmax(0, 1fr))' : 'repeat(2, minmax(0, 1fr))'),
+      footBrandSpan: M ? '1 / -1' : 'auto'
+    };
+
+    const cols = M ? 4 : 5;
+    const gap = M ? 10 : 14;
+    const cell = D ? 96 : Math.min(T ? 116 : 999, Math.floor((inner - gap * (cols - 1)) / cols));
+    // Real people supplied by Caleb. Person 3 is Caleb (his app screenshot uses this photo for his account). Others unnamed until confirmed.
+    const P = { p1: '/_blob/65808a0ff7af21fa969efbf886b5fc2d', p2: '/_blob/d74090200f650cedaa9de3c5d899d211', p3: '/_blob/430c0f09899bf1d66967a5f938945709', p4: '/_blob/3059bb958e048bf246c0ae398ac47016', tc: '/_blob/28bdda1057305c4ad397e945216f9f2f' };
+    const who = { p1: 'Person 1', p2: 'Person 2', p3: 'Caleb A.', p4: 'Person 4' };
+    const wide = [
+      ['face', P.p2, 1, 1], ['mono', 'U', 1, 2, 1, 1, '#1e3a8a', '#ffffff'], ['face', P.p4, 1, 4], ['photo', P.tc, 1, 5],
+      ['chat', '', 2, 1, 1, 3], ['mono', 'LD', 2, 4, 1, 1, '#0e1b3d', '#ffffff'], ['mono', 'DH', 2, 5, 1, 1, '#e8f1ff', '#1e3a8a'],
+      ['mono', 'CG', 3, 1, 1, 1, '#0e1b3d', '#ffffff'], ['face', P.p1, 3, 2], ['opp', '', 3, 3, 1, 3],
+      ['event', '', 4, 1, 1, 2], ['mono', 'SF', 4, 3, 1, 1, '#0068d6', '#ffffff'], ['mono', 'PB', 4, 4, 1, 1, '#e9edf4', '#0e1b3d'], ['face', P.p3, 4, 5]
+    ];
+    const narrow = [
+      ['face', P.p2, 1, 1], ['mono', 'U', 1, 2, 1, 1, '#1e3a8a', '#ffffff'], ['face', P.p4, 1, 3], ['photo', P.tc, 1, 4],
+      ['chat', '', 2, 1, 1, 4],
+      ['face', P.p1, 3, 1], ['mono', 'DH', 3, 2, 1, 1, '#e8f1ff', '#1e3a8a'], ['face', P.p3, 3, 3], ['mono', 'CG', 3, 4, 1, 1, '#0e1b3d', '#ffffff'],
+      ['opp', '', 4, 1, 1, 4],
+      ['event', '', 5, 1, 1, 2], ['mono', 'SF', 5, 3, 1, 1, '#0068d6', '#ffffff'], ['mono', 'PB', 5, 4, 1, 1, '#e9edf4', '#0e1b3d']
+    ];
+    const items = (M ? narrow : wide).map((a, i) => ({
+      area: a[2] + ' / ' + a[3] + ' / span ' + (a[4] || 1) + ' / span ' + (a[5] || 1),
+      delay: (0.12 + i * 0.04).toFixed(2) + 's',
+      isFace: a[0] === 'face', isPhoto: a[0] === 'photo', isMono: a[0] === 'mono',
+      isChat: a[0] === 'chat', isOpp: a[0] === 'opp', isEvent: a[0] === 'event',
+      img: a[0] === 'face' || a[0] === 'photo' ? a[1] : '',
+      mono: a[0] === 'mono' ? a[1] : '', bg: a[6] || '', fg: a[7] || ''
+    }));
+
+    // ---------- Product showcase ----------
+    const feature = s.feature || this.props.feature || 'feed';
+    const go = (id) => () => this.setState({ feature: id });
+    const defs = [
+      { id: 'feed', num: '01', name: 'Feed', sub: 'Stay in the conversation',
+        desc: 'Share updates, ideas, photos and video with your communities. Like, comment and keep up with what the people you follow are building.',
+        feats: ['For you, Following and Communities in one feed', 'Every post shows its community or organisation', 'Community updates and events sit in line'],
+        hint: 'Try it: like or save the post, switch feeds, scroll.' },
+      { id: 'communities', num: '02', name: 'Communities', sub: 'Find your people',
+        desc: 'Join communities for your school, interests, profession and goals. Each one has a single group conversation, as familiar as the chats you already use.',
+        feats: ['One group conversation per community', 'Unread messages and mentions at a glance', 'Messages, photos and reactions, nothing to set up'],
+        hint: 'Try it: open Tech Creators and send a message.' },
+      { id: 'discover', num: '03', name: 'Discover', sub: "Find what's next",
+        desc: 'Events, internships, scholarships, jobs, hackathons and learning resources, gathered in one place and easy to tell apart.',
+        feats: ['Events lead with the date', 'Opportunities lead with who and the deadline', 'Save anything to come back to later'],
+        hint: 'Try it: switch filters or save a listing.' },
+      { id: 'profile', num: '04', name: 'Profile', sub: 'Make your presence count',
+        desc: "Show who you are, what you're interested in, what you've worked on and the communities you're part of.",
+        feats: ['Your interests and communities', 'Your posts in one place', 'Everything you saved from Discover'],
+        hint: 'Try it: open Saved, then save something in Discover.' }
+    ];
+    const tabList = defs.map((d, i) => {
+      const on = feature === d.id;
+      return Object.assign({}, d, {
+        row: D ? String(i + 2) : '2',
+        col: D ? '1' : String(i + 1),
+        cls: D ? 'kw-tab' : 'kw-tabline',
+        pressed: on ? 'true' : 'false',
+        bg: D && on ? '#f4f6fa' : 'transparent',
+        line: !D && on ? 'inset 0 -2px 0 #0e1b3d' : 'none',
+        numColor: on ? '#0068d6' : '#5e6a82',
+        titleColor: on ? '#0e1b3d' : (D ? '#4d5b75' : '#5e6a82'),
+        weight: D ? 600 : (on ? 700 : 500),
+        open: D && on,
+        pick: go(d.id)
+      });
+    });
+    const curDef = defs.filter((d) => d.id === feature)[0] || defs[0];
+    const cur = Object.assign({}, curDef, { region: curDef.name + ' preview, sample content' });
+    const F = {
+      cols: D ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'auto auto auto auto minmax(0, 1fr)',
+      rows: D ? 'auto auto auto auto auto 1fr' : 'none',
+      colGap: D ? L.colGap : (M ? 18 : 26), rowGap: D ? 6 : 16,
+      headCol: D ? '1' : '1 / -1', headPad: D ? 28 : 8,
+      tabPad: D ? '18px 22px' : '0', tabR: D ? 16 : 0,
+      tabFont: D ? "'Bricolage Grotesque', sans-serif" : "'Figtree', sans-serif",
+      tabSize: D ? 26 : 16, tabLh: D ? 30 : 44, tabLs: D ? -0.5 : 0,
+      featDir: T ? 'row' : 'column',
+      prevCol: D ? '2' : '1 / -1', prevRow: D ? '1 / span 6' : '4',
+      stageR: pick(28, 24, 0), stageBg: M ? 'transparent' : '#f4f6fa',
+      stagePadV: pick(56, 44, 4), stagePadH: pick(40, 24, 0),
+      showNum: !M, numSize: pick(200, 150, 0)
+    };
+    const phS = M ? Math.min(1, inner / 380) : 1;
+    const ph = { s: phS.toFixed(4), w: Math.round(380 * phS), h: Math.round(780 * phS) };
+
+    // shared people and identities
+    const TC = P.tc;
+    const EV = '/_blob/8dda10db7331f109bfebcb09bfa583ea';
+    const ROAD = '/_blob/2c78dd7865515ca7c3ab474ba9188d41';
+    const tabsOf = (list, active, key) => list.map((t) => ({
+      label: t.label, hasCount: !!t.count, count: t.count || '',
+      pressed: active === t.id ? 'true' : 'false',
+      weight: active === t.id ? 700 : 500,
+      color: active === t.id ? '#0e1b3d' : '#5e6a82',
+      line: active === t.id ? 'inset 0 -2px 0 #0e1b3d' : 'none',
+      pick: () => this.setState({ [key]: t.id })
+    }));
+
+    // Feed
+    const liked = Object.assign({ p1: true }, s.liked || {});
+    const kept = Object.assign({}, s.kept || {});
+    const flip = (key, map, id) => () => { const n = Object.assign({}, map); n[id] = !n[id]; this.setState({ [key]: n }); };
+    const postDefs = {
+      p1: { id: 'p1', hasImg: true, hasMono: false, av: P.p3, name: 'Caleb Abisoye', ctx: 'Brivent Global Innovations', time: '3h',
+        text: "Had the opportunity to pitch Kinnoc, Brivent's community and opportunity platform, at HultPrize UNIOSUN. Proud to support platforms empowering young innovators to share ideas, build solutions, and create impact.",
+        hasMedia: true, media: EV, mediaAlt: 'A speaker on stage at HultPrize UNIOSUN', base: 127, comments: 24 },
+      p2: { id: 'p2', hasImg: false, hasMono: true, av: '', mono: 'E', avBg: '#e8f1ff', avFg: '#1e3a8a', name: 'Esther', ctx: 'Design Hub', time: '6h',
+        text: "Sharing the onboarding flow we critiqued on Thursday. Feedback welcome before Friday's review.",
+        hasMedia: false, media: '', mediaAlt: '', base: 33, comments: 9 }
+    };
+    const post = (id) => {
+      const p = postDefs[id], on = !!liked[id], sv = !!kept[id];
+      return Object.assign({}, p, {
+        isPost: true, isUpdate: false,
+        liked: on ? 'true' : 'false', likes: p.base + (on ? 1 : 0),
+        likeColor: on ? '#0068d6' : '#4d5b75', likeFill: on ? '#0068d6' : 'none', like: flip('liked', liked, id),
+        kept: sv ? 'true' : 'false', keepColor: sv ? '#0068d6' : '#4d5b75', keepFill: sv ? '#0068d6' : 'none', save: flip('kept', kept, id)
+      });
+    };
+    const upd = {
+      u1: { isPost: false, isUpdate: true, hasPhoto: false, hasTile: true, mono: 'U', bg: '#1e3a8a', fg: '#ffffff', img: '', name: 'UNIOSUN Community', kind: 'Update', time: '5h', title: 'Orientation for new students', meta: 'Fri, 23 Oct · 10:00 AM · Main Auditorium' },
+      u2: { isPost: false, isUpdate: true, hasPhoto: true, hasTile: false, mono: '', bg: '', fg: '', img: TC, name: 'Tech Creators', kind: 'Event', time: '1d', title: 'Lagos Tech Meetup', meta: 'Sat, 24 Oct · 2:00 PM · Victoria Island' }
+    };
+    const fTab = s.fTab || 'foryou';
+    const feedLists = {
+      foryou: [post('p1'), upd.u1, post('p2'), upd.u2],
+      following: [post('p1'), post('p2')],
+      communities: [upd.u1, upd.u2, post('p2')]
+    };
+    const feed = {
+      tabs: tabsOf([{ id: 'foryou', label: 'For you' }, { id: 'following', label: 'Following' }, { id: 'communities', label: 'Communities' }], fTab, 'fTab'),
+      items: feedLists[fTab] || feedLists.foryou
+    };
+
+    // Communities
+    const cTab = s.cTab || 'all';
+    const chatOpen = !!s.chatOpen;
+    const tcRead = !!s.tcRead;
+    const sent = s.sent || [];
+    const lastSent = sent.length ? sent[sent.length - 1].text : '';
+    const nudge = () => { this.setState({ note: true }); clearTimeout(this._nt); this._nt = setTimeout(() => this.setState({ note: false }), 2200); };
+    const rowDefs = [
+      { id: 'tc', isPhoto: true, img: TC, name: 'Tech Creators', who: lastSent ? 'You: ' : 'Esther: ', msg: lastSent || "I'm in too. I'll handle the UI.", time: lastSent ? 'Now' : '10:15 AM', unread: !tcRead, badge: '2' },
+      { id: 'u', mono: 'U', bg: '#1e3a8a', fg: '#ffffff', name: 'UNIOSUN Community', typing: true, typer: 'Tunde', time: '10:21 AM', unread: true },
+      { id: 'dh', mono: 'DH', bg: '#e8f1ff', fg: '#1e3a8a', name: 'Design Hub', who: 'Esther: ', msg: "@Caleb here's the onboarding flow", time: '8:45 AM', unread: true, at: true },
+      { id: 'pb', mono: 'PB', bg: '#e9edf4', fg: '#0e1b3d', name: 'Product Builders', who: 'You: ', msg: "Let's pick this up tomorrow.", time: 'Yesterday', unread: false },
+      { id: 'ld', mono: 'LD', bg: '#0e1b3d', fg: '#ffffff', name: 'Lagos Devs', who: 'Femi: ', msg: 'Slides from the meetup are up.', time: 'Sat', unread: false },
+      { id: 'cg', mono: 'CG', bg: '#0068d6', fg: '#ffffff', name: 'Career Growth', who: 'Ada: ', msg: 'CV review sessions start next week.', time: 'Fri', unread: false },
+      { id: 'sf', mono: 'SF', bg: '#e8f1ff', fg: '#1e3a8a', name: 'Student Founders NG', who: 'Kemi: ', msg: 'Has anyone pitched to angel investors?', time: 'Thu', unread: false }
+    ];
+    const rows = rowDefs.map((r) => ({
+      isPhoto: !!r.isPhoto, isMono: !r.isPhoto, img: r.img || '', mono: r.mono || '', bg: r.bg || '', fg: r.fg || '',
+      name: r.name, time: r.time, who: r.who || '', msg: r.msg || '', typer: r.typer || '',
+      typing: !!r.typing, notTyping: !r.typing, unread: r.unread,
+      weight: r.unread ? 700 : 600, timeWeight: r.unread ? 700 : 500, timeColor: r.unread ? '#0068d6' : '#5e6a82',
+      msgColor: r.unread ? '#0e1b3d' : '#5e6a82',
+      hasBadge: !!(r.unread && r.badge), badge: r.badge || '', hasAt: !!(r.unread && r.at),
+      aria: r.name + (r.unread ? ', unread' : ''),
+      open: r.id === 'tc' ? () => this.setState({ chatOpen: true, tcRead: true }) : nudge
+    }));
+    const unreadN = rows.filter((r) => r.unread).length;
+    const comm = {
+      tabs: tabsOf([{ id: 'all', label: 'All' }, { id: 'unread', label: 'Unread', count: unreadN ? String(unreadN) : '' }], cTab, 'cTab'),
+      rows: cTab === 'unread' ? rows.filter((r) => r.unread) : rows
+    };
+    const draft = s.draft || '';
+    const sendMsg = () => {
+      const t = ((this.state && this.state.draft) || '').trim();
+      if (!t) return;
+      this.setState({ sent: ((this.state && this.state.sent) || []).concat([{ text: t }]), draft: '' });
+    };
+    const reacted = !!s.reacted;
+    const chat = {
+      img: TC, sent: sent, draft: draft,
+      hasDraft: draft.trim().length > 0, noDraft: draft.trim().length === 0,
+      onType: (e) => this.setState({ draft: e.target.value }),
+      onKey: (e) => { if (e.key === 'Enter') { e.preventDefault(); sendMsg(); } },
+      send: sendMsg,
+      back: () => this.setState({ chatOpen: false }),
+      reacted: reacted ? 'true' : 'false', reactCount: reacted ? 4 : 3,
+      reactBg: reacted ? '#e8f1ff' : '#f4f6fa', reactRing: reacted ? 'inset 0 0 0 1px #afc3e8' : 'none',
+      react: () => this.setState({ reacted: !reacted })
+    };
+
+    // Discover
+    const dTab = s.dTab || 'all';
+    const saved = Object.assign({ meetup: true, roadmap: true }, s.saved || {});
+    const LS = {
+      meetup: { lead: 'feature', mon: 'SAT · OCT', day: '24', kind: 'EVENT · VICTORIA ISLAND', title: 'Lagos Tech Meetup', meta: 'Hosted by Tech Creators · 2:00 PM' },
+      workshop: { lead: 'date', mon: 'OCT', day: '31', kind: 'EVENT · ONLINE', title: 'Product Design Workshop', meta: 'Design Hub · 4:00 PM' },
+      campus: { lead: 'date', mon: 'NOV', day: '9', kind: 'EVENT · UNIOSUN', title: 'Campus Tech Week', meta: 'UNIOSUN Community · All week' },
+      intern: { lead: 'org', mono: 'B', bg: '#e8f1ff', fg: '#1e3a8a', kind: 'INTERNSHIP · REMOTE', title: 'Frontend Developer (Internship)', meta: 'Brivent Global Innovations · Closes 15 Nov' },
+      hack: { lead: 'range', range: '14–16', mon: 'NOV', kind: 'HACKATHON · ONLINE', title: 'Fintech Build Weekend', meta: 'Builders Lagos · Teams of 2 to 4' },
+      schol: { lead: 'deadline', day: '30', mon: 'NOV', kind: 'SCHOLARSHIP · UNDERGRADUATE', title: 'Women in STEM Scholarship', meta: 'Northbridge Foundation · Closes 30 Nov' },
+      job: { lead: 'org', mono: 'LS', bg: '#0e1b3d', fg: '#ffffff', kind: 'JOB · ', warn: 'CLOSES IN 3 DAYS', title: 'Junior Product Designer', meta: 'Lumen Studio · Lagos' },
+      roadmap: { lead: 'cover', img: ROAD, kind: 'GUIDE · 12 MIN READ', title: 'System Design Roadmap', meta: 'by TechWithTobi' },
+      uxr: { lead: 'video', kind: 'VIDEO · 18 MIN', title: 'Intro to UX Research', meta: 'Design Hub' },
+      cv: { lead: 'doc', kind: 'GUIDE · 8 MIN READ', title: 'Writing a CV that gets read', meta: 'Career Growth' }
+    };
+    const head = (title) => ({ isHead: true, isFeature: false, isRow: false, title: title });
+    const listing = (id, asRow) => {
+      const x = LS[id], on = !!saved[id];
+      const lead = asRow && x.lead === 'feature' ? 'date' : x.lead;
+      return Object.assign({}, x, {
+        isHead: false, isFeature: lead === 'feature', isRow: lead !== 'feature',
+        isDate: lead === 'date', isOrg: lead === 'org', isRange: lead === 'range', isDeadline: lead === 'deadline',
+        isCover: lead === 'cover', isVideo: lead === 'video', isDoc: lead === 'doc',
+        mon: lead === 'date' && x.lead === 'feature' ? 'OCT' : x.mon,
+        hasWarn: !!x.warn, warn: x.warn || '',
+        pressed: on ? 'true' : 'false', color: on ? '#0068d6' : '#4d5b75', fill: on ? '#0068d6' : 'none', fillDark: on ? '#ffffff' : 'none',
+        toggle: flip('saved', saved, id)
+      });
+    };
+    const discLists = {
+      all: [head('This week'), listing('meetup'), listing('workshop'), head('Opportunities'), listing('intern'), listing('hack'), listing('schol'), listing('job'), head('Resources'), listing('roadmap'), listing('uxr')],
+      events: [listing('meetup'), listing('workshop'), listing('campus')],
+      opps: [listing('intern'), listing('hack'), listing('schol'), listing('job')],
+      res: [listing('roadmap'), listing('uxr'), listing('cv')]
+    };
+    const disc = {
+      tabs: tabsOf([{ id: 'all', label: 'All' }, { id: 'events', label: 'Events' }, { id: 'opps', label: 'Opportunities' }, { id: 'res', label: 'Resources' }], dTab, 'dTab'),
+      items: discLists[dTab] || discLists.all,
+      toSaved: () => this.setState({ feature: 'profile', pTab: 'saved' })
+    };
+
+    // Profile
+    const pTab = s.pTab || 'posts';
+    const savedList = Object.keys(LS).filter((k) => saved[k]).map((k) => listing(k, true));
+    const me = {
+      img: P.p3, name: 'Caleb Abisoye', handle: '@calebabisoye', headline: 'Founder, Brivent Global Innovations',
+      bio: 'Building Kinnoc, a home for communities and opportunities.',
+      interests: ['Product design', 'Startups', 'Web development'],
+      comms: [
+        { isPhoto: true, isMono: false, img: TC, name: 'Tech Creators', mono: '', bg: '', fg: '' },
+        { isPhoto: false, isMono: true, img: '', name: 'UNIOSUN Community', mono: 'U', bg: '#1e3a8a', fg: '#ffffff' },
+        { isPhoto: false, isMono: true, img: '', name: 'Product Builders', mono: 'PB', bg: '#e9edf4', fg: '#0e1b3d' },
+        { isPhoto: false, isMono: true, img: '', name: 'Design Hub', mono: 'DH', bg: '#e8f1ff', fg: '#1e3a8a' },
+        { isPhoto: false, isMono: true, img: '', name: 'Lagos Devs', mono: 'LD', bg: '#0e1b3d', fg: '#ffffff' }
+      ],
+      toComm: () => this.setState({ feature: 'communities', chatOpen: false }),
+      tabs: tabsOf([{ id: 'posts', label: 'Posts' }, { id: 'saved', label: 'Saved' }], pTab, 'pTab'),
+      showPosts: pTab === 'posts', showSaved: pTab === 'saved',
+      post: post('p1'),
+      saved: savedList, hasSaved: savedList.length > 0, noSaved: savedList.length === 0
+    };
+
+    // Screens and app navigation
+    const scr = {
+      feed: feature === 'feed', inbox: feature === 'communities' && !chatOpen, chat: feature === 'communities' && chatOpen,
+      disc: feature === 'discover', prof: feature === 'profile'
+    };
+    const navItem = (id) => ({
+      current: feature === id ? 'page' : 'false',
+      color: feature === id ? '#0068d6' : '#5e6a82',
+      weight: feature === id ? 700 : 500,
+      pick: go(id)
+    });
+    const app = {
+      showNav: !scr.chat, note: !!s.note && scr.inbox, navDot: !tcRead,
+      nav: { feed: navItem('feed'), communities: navItem('communities'), discover: navItem('discover'), profile: navItem('profile') }
+    };
+    const people = [
+      { img: '/_blob/2e57fe39723a689a73e461527851df62', alt: 'A student holding notebooks outdoors', title: 'Students', text: 'Find your campus, your department and the people in your course.', mono: 'U', community: 'UNIOSUN Community', bg: '#1e3a8a', fg: '#ffffff' },
+      { img: '/_blob/369df77ed322c901b5216d9fcab3396f', alt: 'A developer with headphones', title: 'Developers and designers', text: 'Share work in progress, get feedback and build with others.', mono: 'DH', community: 'Design Hub', bg: '#e8f1ff', fg: '#1e3a8a' },
+      { img: '/_blob/c8ee31449b39ed87b51131404241afc5', alt: 'A creator holding a camera', title: 'Creators', text: 'Grow alongside people who make things too, and learn from their process.', mono: 'CC', community: 'Creators Circle', bg: '#e9edf4', fg: '#0e1b3d' },
+      { img: '/_blob/8078a7f16f93d515733a30a4d4a193f3', alt: 'A young professional at a desk', title: 'Early-career professionals', text: 'Stay close to roles, mentors and events in your field.', mono: 'CG', community: 'Career Growth', bg: '#0e1b3d', fg: '#ffffff' },
+      { img: '/_blob/61a4dcdb095675ec6541cf8226cfd7e8', alt: 'An entrepreneur smiling in a workspace', title: 'Builders and entrepreneurs', text: 'Meet co-founders, early users and people who have done it before.', mono: 'SF', community: 'Student Founders NG', bg: '#0068d6', fg: '#ffffff' }
+    ];
+    const kinds = [
+      { kind: 'SCHOOL', mono: 'U', name: 'UNIOSUN Community', bg: '#1e3a8a', fg: '#ffffff' },
+      { kind: 'INTEREST', mono: 'DH', name: 'Design Hub', bg: '#e8f1ff', fg: '#1e3a8a' },
+      { kind: 'CAREER', mono: 'LD', name: 'Lagos Devs', bg: '#0e1b3d', fg: '#ffffff' },
+      { kind: 'GOAL', mono: 'SF', name: 'Student Founders NG', bg: '#e9edf4', fg: '#0e1b3d' }
+    ];
+    const open = !!s.menu && !D;
+    return {
+      setRoot: this._setRoot,
+      L: L, F: F, tabList: tabList, cur: cur, ph: ph, me: me, feed: feed, comm: comm, chat: chat, disc: disc, scr: scr, app: app, people: people, kinds: kinds, who: who,
+      mosaic: { cols: cols, cell: cell, gap: gap, items: items, monoSize: Math.round(cell * 0.3), r: M ? 16 : 18 },
+      menu: {
+        open: open, closed: !open, expanded: open ? 'true' : 'false',
+        toggle: () => this.setState({ menu: !open }),
+        close: () => this.setState({ menu: false })
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

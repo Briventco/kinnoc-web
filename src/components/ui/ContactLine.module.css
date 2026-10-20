@@ -1,0 +1,14 @@
+.email { font-weight: 600; color: var(--kn-color-action); text-decoration: none; }
+.pending {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--kn-radius-sm);
+  background: var(--kn-color-sky);
+  box-shadow: inset 0 0 0 1px var(--kn-color-sky-ring);
+  color: var(--kn-color-navy);
+  font-size: 13px;
+  font-weight: 600;
+}

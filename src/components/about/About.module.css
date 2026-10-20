@@ -1,0 +1,76 @@
+/* About page. Same tokens, rhythm and section transitions as the homepage. */
+
+.section { padding-block: var(--kn-space-section-y); }
+.ruled { border-top: 1px solid var(--kn-color-line); }
+
+.twoCol {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--kn-space-column-gap);
+  align-items: start;
+}
+
+.accent { color: var(--kn-color-action); }
+.darkAccent { color: var(--kn-color-dark-accent); }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: var(--kn-space-hero-top); padding-bottom: var(--kn-space-hero-bottom); align-items: center; }
+.heroCopy { display: flex; flex-direction: column; gap: var(--kn-space-hero-stack); min-width: 0; }
+.title {
+  font-family: var(--kn-font-display);
+  font-size: var(--kn-type-cta-size);
+  line-height: var(--kn-type-cta-line-height);
+  letter-spacing: var(--kn-type-display-tracking);
+  font-weight: 600;
+  text-wrap: balance;
+}
+.lead { max-width: 540px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+/* ---------- Why Kinnoc exists ---------- */
+.prose { display: flex; flex-direction: column; gap: 18px; max-width: 620px; }
+.list { list-style: none; padding: 0; margin-top: 10px; display: grid; grid-template-columns: minmax(0, 1fr); }
+.listItem { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--kn-color-line); font-size: 16px; line-height: 24px; font-weight: 600; }
+.listIcon { color: var(--kn-color-action); flex: none; margin-top: 2px; }
+
+/* ---------- What Kinnoc stands for ---------- */
+.intro { display: flex; flex-direction: column; gap: 16px; margin-bottom: var(--kn-space-heading-gap); max-width: 640px; }
+.values { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.value { display: flex; flex-direction: column; gap: 14px; padding-top: 22px; box-shadow: inset 0 3px 0 var(--kn-color-ink); }
+.valueIcon { width: 44px; height: 44px; border-radius: var(--kn-radius-lg); background: var(--kn-color-sky); color: var(--kn-color-navy); display: flex; align-items: center; justify-content: center; }
+.valueTitle { font-family: var(--kn-font-display); font-size: 26px; line-height: 30px; font-weight: 600; letter-spacing: -0.5px; }
+.valueText { font-size: 16px; line-height: 24px; color: var(--kn-color-ink-2); }
+
+/* ---------- Bigger picture (the page's one dark section) ---------- */
+.dark { background: var(--kn-color-ink); color: var(--kn-color-paper); }
+.ideas { list-style: none; padding: 0; margin-top: var(--kn-space-heading-gap); display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.idea { display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid var(--kn-color-dark-tile-ring); }
+.ideaTitle { font-family: var(--kn-font-display); font-size: 22px; line-height: 27px; font-weight: 600; }
+.ideaText { font-size: 16px; line-height: 25px; color: var(--kn-color-on-navy); }
+.darkIntro { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+
+/* ---------- Brivent ---------- */
+.contact {
+  scroll-margin-top: calc(var(--kn-size-nav-height) + 24px);
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid var(--kn-color-line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contactLinks { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
+.contactLinks a { font-weight: 600; color: var(--kn-color-ink); text-decoration: none; }
+
+@media (min-width: 640px) {
+  .list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+  .values { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+  .ideas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+}
+
+@media (min-width: 1024px) {
+  .twoCol { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .hero { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); }
+  .values { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
+  .ideas { gap: 40px; }
+}

@@ -1,0 +1,132 @@
+/* Kinnoc website tokens. Generated from design-tokens.json; do not edit by hand. */
+:root {
+  --kn-color-paper: #FFFFFF;
+  --kn-color-ink: #0E1B3D;
+  --kn-color-ink-2: #4D5B75;
+  --kn-color-ink-3: #5E6A82;
+  --kn-color-navy: #1E3A8A;
+  --kn-color-action: #0068D6;
+  --kn-color-action-pressed: #0057B8;
+  --kn-color-logo-blue: #0086FF;
+  --kn-color-mist: #F4F6FA;
+  --kn-color-mist-2: #E9EDF4;
+  --kn-color-sky: #E8F1FF;
+  --kn-color-sky-ring: #AFC3E8;
+  --kn-color-line: #E7EBF2;
+  --kn-color-chip-border: #DFE4ED;
+  --kn-color-bubble-in: #EEF1F6;
+  --kn-color-on-navy: #C9D8F2;
+  --kn-color-amber: #B45309;
+  --kn-color-dark-tile: #1A2B55;
+  --kn-color-dark-label: #9FB3D9;
+  --kn-color-dark-accent: #7FB8FF;
+  --kn-color-dark-tile-ring: #3D5BA8;
+  --kn-color-numeral: #E3E9F3;
+  --kn-color-bezel: #0E1B3D;
+  /* next/font sets --kn-font-display-face and --kn-font-body-face (README); plain CSS falls back to the family names from fonts.css */
+  --kn-font-display: var(--kn-font-display-face, 'Bricolage Grotesque'), system-ui, sans-serif;
+  --kn-font-body: var(--kn-font-body-face, 'Figtree'), system-ui, sans-serif;
+  --kn-container-max: 1296px;
+  --kn-radius-xs: 4px;
+  --kn-radius-sm: 8px;
+  --kn-radius-md: 10px;
+  --kn-radius-lg: 12px;
+  --kn-radius-xl: 16px;
+  --kn-radius-2xl: 20px;
+  --kn-radius-3xl: 24px;
+  --kn-radius-4xl: 28px;
+  --kn-radius-community: 30%;
+  --kn-radius-full: 999px;
+  --kn-shadow-preview-card: 0 24px 60px rgba(14,27,61,.14), 0 0 0 1px rgba(14,27,61,.05);
+  --kn-shadow-opportunity-snippet: 0 12px 32px rgba(14,27,61,.10), 0 0 0 1px rgba(14,27,61,.06);
+  --kn-shadow-phone: 0 50px 90px -30px rgba(14,27,61,.45), inset 0 0 0 1.5px #2A3A63;
+  --kn-ease-out: cubic-bezier(.2,.7,.2,1);
+  --kn-duration-state: 180ms;
+  --kn-focus-ring: 2px solid #0068D6;
+  --kn-focus-offset: 3px;
+  --kn-space-page-x: 20px;
+  --kn-space-section-y: 72px;
+  --kn-space-column-gap: 36px;
+  --kn-space-heading-gap: 32px;
+  --kn-size-nav-height: 60px;
+  --kn-size-logo-height: 34px;
+  --kn-space-hero-top: 40px;
+  --kn-space-hero-bottom: 64px;
+  --kn-space-hero-stack: 18px;
+  --kn-space-hero-row-gap: 24px;
+  --kn-type-display-size: 42px;
+  --kn-type-display-line-height: 44px;
+  --kn-type-display-tracking: -1.3px;
+  --kn-type-h2-size: 34px;
+  --kn-type-h2-line-height: 38px;
+  --kn-type-cta-size: 40px;
+  --kn-type-cta-line-height: 42px;
+  --kn-type-lead-size: 17px;
+  --kn-type-lead-line-height: 26px;
+  --kn-type-body-size: 16px;
+  --kn-type-body-line-height: 25px;
+  --kn-space-mosaic-gap: 10px;
+  --kn-size-audience-image-w: 88px;
+  --kn-size-audience-image-h: 72px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --kn-space-page-x: 32px;
+    --kn-space-section-y: 96px;
+    --kn-space-column-gap: 48px;
+    --kn-space-heading-gap: 44px;
+    --kn-size-nav-height: 68px;
+    --kn-size-logo-height: 36px;
+    --kn-space-hero-top: 64px;
+    --kn-space-hero-bottom: 88px;
+    --kn-space-hero-stack: 20px;
+    --kn-space-hero-row-gap: 32px;
+    --kn-type-display-size: 64px;
+    --kn-type-display-line-height: 66px;
+    --kn-type-display-tracking: -2px;
+    --kn-type-h2-size: 42px;
+    --kn-type-h2-line-height: 46px;
+    --kn-type-cta-size: 54px;
+    --kn-type-cta-line-height: 56px;
+    --kn-type-lead-size: 19px;
+    --kn-type-lead-line-height: 28px;
+    --kn-type-body-size: 17px;
+    --kn-type-body-line-height: 26px;
+    --kn-space-mosaic-gap: 14px;
+    --kn-size-audience-image-w: 120px;
+    --kn-size-audience-image-h: 86px;
+    --kn-size-cta-cell: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --kn-space-page-x: 48px;
+    --kn-space-section-y: 120px;
+    --kn-space-column-gap: 72px;
+    --kn-space-heading-gap: 56px;
+    --kn-size-nav-height: 76px;
+    --kn-size-logo-height: 40px;
+    --kn-space-hero-top: 88px;
+    --kn-space-hero-bottom: 104px;
+    --kn-space-hero-stack: 22px;
+    --kn-space-hero-row-gap: 44px;
+    --kn-type-display-size: 86px;
+    --kn-type-display-line-height: 86px;
+    --kn-type-display-tracking: -3px;
+    --kn-type-h2-size: 50px;
+    --kn-type-h2-line-height: 54px;
+    --kn-type-cta-size: 64px;
+    --kn-type-cta-line-height: 66px;
+    --kn-type-lead-size: 20px;
+    --kn-type-lead-line-height: 30px;
+    --kn-type-body-size: 17px;
+    --kn-type-body-line-height: 27px;
+    --kn-size-mosaic-cell: 96px;
+    --kn-space-mosaic-gap: 14px;
+    --kn-size-audience-image-w: 128px;
+    --kn-size-audience-image-h: 92px;
+    --kn-size-cta-cell: 104px;
+  }
+}

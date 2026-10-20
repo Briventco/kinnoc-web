@@ -1,0 +1,726 @@
+{
+  "_readme": "Paths are relative to the package root. Copy assets/ to public/kinnoc/ in the Next.js app, so assets/x.webp is served at /kinnoc/x.webp. Every path here exists (npm run verify).",
+  "publicBase": "/kinnoc/",
+  "SiteHeader": {
+    "logo": {
+      "src": "assets/logos/kinnoc-lockup-blue.png",
+      "alt": "Kinnoc",
+      "height": {
+        "desktop": 40,
+        "tablet": 36,
+        "mobile": 34
+      },
+      "width": "auto"
+    },
+    "menuButton": {
+      "iconOpen": "menu",
+      "iconClose": "close",
+      "size": 24,
+      "strokeWidth": 1.9,
+      "showBelow": 1024
+    }
+  },
+  "Hero": {
+    "builtByMark": {
+      "src": "assets/logos/kinnoc-symbol-blue.png",
+      "alt": "",
+      "width": 14,
+      "height": 18,
+      "fit": "contain"
+    },
+    "mosaic": {
+      "desktopAndTablet": {
+        "columns": 5,
+        "rows": 4,
+        "items": [
+          {
+            "area": [
+              1,
+              1
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-2-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              1,
+              2
+            ],
+            "type": "community-monogram",
+            "text": "U",
+            "background": "#1E3A8A",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              1,
+              3
+            ],
+            "type": "empty"
+          },
+          {
+            "area": [
+              1,
+              4
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-4-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              1,
+              5
+            ],
+            "type": "community-photo",
+            "src": "assets/images/communities/tech-creators-avatar-placeholder.webp",
+            "radius": "30%",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              2,
+              1
+            ],
+            "span": 3,
+            "type": "chat-snippet",
+            "avatar": "assets/images/people/person-3-caleb-abisoye-480.webp",
+            "sender": "Caleb A.",
+            "community": "Tech Creators",
+            "text": "Who's going to the hackathon this weekend?"
+          },
+          {
+            "area": [
+              2,
+              4
+            ],
+            "type": "community-monogram",
+            "text": "LD",
+            "background": "#0E1B3D",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              2,
+              5
+            ],
+            "type": "community-monogram",
+            "text": "DH",
+            "background": "#E8F1FF",
+            "color": "#1E3A8A",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              3,
+              1
+            ],
+            "type": "community-monogram",
+            "text": "CG",
+            "background": "#0E1B3D",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              3,
+              2
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-1-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              3,
+              3
+            ],
+            "span": 3,
+            "type": "opportunity-snippet",
+            "monogram": "B",
+            "kind": "INTERNSHIP · REMOTE",
+            "title": "Frontend Developer (Internship)"
+          },
+          {
+            "area": [
+              4,
+              1
+            ],
+            "span": 2,
+            "type": "event-snippet",
+            "month": "OCT",
+            "day": "24",
+            "title": "Lagos Tech Meetup"
+          },
+          {
+            "area": [
+              4,
+              3
+            ],
+            "type": "community-monogram",
+            "text": "SF",
+            "background": "#0068D6",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              4,
+              4
+            ],
+            "type": "community-monogram",
+            "text": "PB",
+            "background": "#E9EDF4",
+            "color": "#0E1B3D",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              4,
+              5
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-3-caleb-abisoye-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          }
+        ]
+      },
+      "mobile": {
+        "columns": 4,
+        "rows": 5,
+        "items": [
+          {
+            "area": [
+              1,
+              1
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-2-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              1,
+              2
+            ],
+            "type": "community-monogram",
+            "text": "U",
+            "background": "#1E3A8A",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              1,
+              3
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-4-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              1,
+              4
+            ],
+            "type": "community-photo",
+            "src": "assets/images/communities/tech-creators-avatar-placeholder.webp",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              2,
+              1
+            ],
+            "span": 4,
+            "type": "chat-snippet"
+          },
+          {
+            "area": [
+              3,
+              1
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-1-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              3,
+              2
+            ],
+            "type": "community-monogram",
+            "text": "DH",
+            "background": "#E8F1FF",
+            "color": "#1E3A8A",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              3,
+              3
+            ],
+            "type": "person",
+            "src": "assets/images/people/person-3-caleb-abisoye-480.webp",
+            "shape": "circle",
+            "fit": "cover"
+          },
+          {
+            "area": [
+              3,
+              4
+            ],
+            "type": "community-monogram",
+            "text": "CG",
+            "background": "#0E1B3D",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              4,
+              1
+            ],
+            "span": 4,
+            "type": "opportunity-snippet"
+          },
+          {
+            "area": [
+              5,
+              1
+            ],
+            "span": 2,
+            "type": "event-snippet"
+          },
+          {
+            "area": [
+              5,
+              3
+            ],
+            "type": "community-monogram",
+            "text": "SF",
+            "background": "#0068D6",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          },
+          {
+            "area": [
+              5,
+              4
+            ],
+            "type": "community-monogram",
+            "text": "PB",
+            "background": "#E9EDF4",
+            "color": "#0E1B3D",
+            "radius": "30%"
+          }
+        ]
+      },
+      "note": "Faces are circles, communities are 30%-radius squares. Monogram text: Bricolage 700 at 30% of the cell. Tiles pop in with a 40 ms stagger. The whole mosaic is one role=\"img\" with an aria-label; tiles are aria-hidden."
+    }
+  },
+  "AudienceRows": {
+    "image": {
+      "width": {
+        "desktop": 128,
+        "tablet": 120,
+        "mobile": 88
+      },
+      "height": {
+        "desktop": 92,
+        "tablet": 86,
+        "mobile": 72
+      },
+      "radius": 14,
+      "fit": "cover",
+      "background": "#EEF1F6"
+    },
+    "items": [
+      {
+        "title": "Students",
+        "src": "assets/images/people/placeholders/audience-students-placeholder.webp",
+        "alt": "A student holding notebooks outdoors",
+        "community": {
+          "mono": "U",
+          "name": "UNIOSUN Community",
+          "bg": "#1E3A8A",
+          "fg": "#FFFFFF"
+        }
+      },
+      {
+        "title": "Developers and designers",
+        "src": "assets/images/people/placeholders/audience-developers-designers-placeholder.webp",
+        "alt": "A developer with headphones",
+        "community": {
+          "mono": "DH",
+          "name": "Design Hub",
+          "bg": "#E8F1FF",
+          "fg": "#1E3A8A"
+        }
+      },
+      {
+        "title": "Creators",
+        "src": "assets/images/people/placeholders/audience-creators-placeholder.webp",
+        "alt": "A creator holding a camera",
+        "community": {
+          "mono": "CC",
+          "name": "Creators Circle",
+          "bg": "#E9EDF4",
+          "fg": "#0E1B3D"
+        }
+      },
+      {
+        "title": "Early-career professionals",
+        "src": "assets/images/people/placeholders/audience-early-career-placeholder.webp",
+        "alt": "A young professional at a desk",
+        "community": {
+          "mono": "CG",
+          "name": "Career Growth",
+          "bg": "#0E1B3D",
+          "fg": "#FFFFFF"
+        }
+      },
+      {
+        "title": "Builders and entrepreneurs",
+        "src": "assets/images/people/placeholders/audience-builders-entrepreneurs-placeholder.webp",
+        "alt": "An entrepreneur smiling in a workspace",
+        "community": {
+          "mono": "SF",
+          "name": "Student Founders NG",
+          "bg": "#0068D6",
+          "fg": "#FFFFFF"
+        }
+      }
+    ],
+    "status": "PLACEHOLDER images. Replace when Caleb confirms who represents each audience."
+  },
+  "ProductShowcase": {
+    "phone": {
+      "bezel": "#0E1B3D",
+      "frame": [
+        380,
+        780
+      ],
+      "screen": [
+        360,
+        760
+      ],
+      "appLogo": {
+        "src": "assets/logos/kinnoc-lockup-blue.png",
+        "height": 30
+      },
+      "statusBar": {
+        "signal": "assets/illustrations/device/status-signal.svg",
+        "wifi": "assets/illustrations/device/status-wifi.svg",
+        "battery": "assets/illustrations/device/status-battery.svg"
+      }
+    },
+    "feed": {
+      "composerAvatar": "assets/images/people/person-3-caleb-abisoye-480.webp",
+      "post": {
+        "author": "Caleb Abisoye",
+        "context": "Brivent Global Innovations",
+        "avatar": "assets/images/people/person-3-caleb-abisoye-480.webp",
+        "media": "assets/images/feed/hultprize-uniosun-event.webp",
+        "mediaAlt": "A speaker on stage at HultPrize UNIOSUN",
+        "mediaHeight": 182,
+        "mediaRadius": 12
+      },
+      "updates": [
+        {
+          "community": "UNIOSUN Community",
+          "identity": {
+            "type": "community-monogram",
+            "text": "U",
+            "background": "#1E3A8A",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          }
+        },
+        {
+          "community": "Tech Creators",
+          "identity": {
+            "type": "community-photo",
+            "src": "assets/images/communities/tech-creators-avatar-placeholder.webp"
+          }
+        }
+      ],
+      "textPost": {
+        "author": "Esther",
+        "identity": {
+          "type": "person-monogram",
+          "text": "E",
+          "background": "#E8F1FF",
+          "color": "#1E3A8A"
+        }
+      }
+    },
+    "communities": {
+      "inbox": [
+        {
+          "name": "Tech Creators",
+          "identity": {
+            "type": "community-photo",
+            "src": "assets/images/communities/tech-creators-avatar-placeholder.webp"
+          }
+        },
+        {
+          "name": "UNIOSUN Community",
+          "identity": {
+            "type": "community-monogram",
+            "text": "U",
+            "background": "#1E3A8A",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          }
+        },
+        {
+          "name": "Design Hub",
+          "identity": {
+            "type": "community-monogram",
+            "text": "DH",
+            "background": "#E8F1FF",
+            "color": "#1E3A8A",
+            "radius": "30%"
+          }
+        },
+        {
+          "name": "Product Builders",
+          "identity": {
+            "type": "community-monogram",
+            "text": "PB",
+            "background": "#E9EDF4",
+            "color": "#0E1B3D",
+            "radius": "30%"
+          }
+        },
+        {
+          "name": "Lagos Devs",
+          "identity": {
+            "type": "community-monogram",
+            "text": "LD",
+            "background": "#0E1B3D",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          }
+        },
+        {
+          "name": "Career Growth",
+          "identity": {
+            "type": "community-monogram",
+            "text": "CG",
+            "background": "#0068D6",
+            "color": "#FFFFFF",
+            "radius": "30%"
+          }
+        },
+        {
+          "name": "Student Founders NG",
+          "identity": {
+            "type": "community-monogram",
+            "text": "SF",
+            "background": "#E8F1FF",
+            "color": "#1E3A8A",
+            "radius": "30%"
+          }
+        }
+      ],
+      "conversationHeader": {
+        "identity": "assets/images/communities/tech-creators-avatar-placeholder.webp"
+      },
+      "members": "Sample members use initials (D, T, E), never photos"
+    },
+    "discover": {
+      "resourceCover": "assets/images/resources/system-design-roadmap-cover-placeholder.webp",
+      "note": "Featured event is a navy card that leads with the date; no photo."
+    },
+    "profile": {
+      "photo": "assets/images/people/person-3-caleb-abisoye-480.webp",
+      "name": "Caleb Abisoye",
+      "handle": "@calebabisoye (placeholder, confirm)",
+      "headline": "Founder, Brivent Global Innovations",
+      "communities": [
+        {
+          "type": "community-photo",
+          "src": "assets/images/communities/tech-creators-avatar-placeholder.webp"
+        },
+        "U",
+        "PB",
+        "DH",
+        "LD"
+      ]
+    }
+  },
+  "HowItWorks": {
+    "step1Avatar": {
+      "src": "assets/images/people/person-4-480.webp",
+      "size": 40,
+      "label": "Person 4 (name pending)"
+    }
+  },
+  "DiscoverSection": {
+    "surface": "#0E1B3D",
+    "eventTileImage": {
+      "src": "assets/images/opportunities/lagos-tech-meetup-skyline-placeholder.webp",
+      "width": 66,
+      "height": 60,
+      "radius": 12
+    },
+    "resourceCover": {
+      "src": "assets/images/resources/system-design-roadmap-cover-placeholder.webp",
+      "sizes": [
+        [
+          84,
+          108
+        ],
+        [
+          28,
+          34
+        ]
+      ],
+      "radius": [
+        10,
+        6
+      ]
+    }
+  },
+  "CommunitiesSection": {
+    "conversationHeader": {
+      "src": "assets/images/communities/tech-creators-avatar-placeholder.webp",
+      "size": 38,
+      "radius": 12
+    },
+    "messages": [
+      {
+        "avatar": "assets/images/people/person-3-caleb-abisoye-480.webp",
+        "sender": "Caleb A."
+      },
+      {
+        "avatar": "assets/images/people/person-1-480.webp",
+        "sender": "Person 1 (name pending)"
+      }
+    ],
+    "typing": {
+      "avatar": "assets/images/people/person-2-480.webp",
+      "sender": "Person 2 (name pending)"
+    },
+    "kinds": [
+      {
+        "type": "community-monogram",
+        "text": "U",
+        "background": "#1E3A8A",
+        "color": "#FFFFFF",
+        "radius": "30%"
+      },
+      {
+        "type": "community-monogram",
+        "text": "DH",
+        "background": "#E8F1FF",
+        "color": "#1E3A8A",
+        "radius": "30%"
+      },
+      {
+        "type": "community-monogram",
+        "text": "LD",
+        "background": "#0E1B3D",
+        "color": "#FFFFFF",
+        "radius": "30%"
+      },
+      {
+        "type": "community-monogram",
+        "text": "SF",
+        "background": "#E9EDF4",
+        "color": "#0E1B3D",
+        "radius": "30%"
+      }
+    ]
+  },
+  "ClosingCTA": {
+    "grid": {
+      "columns": 3,
+      "cell": {
+        "desktop": 104,
+        "tablet": 96,
+        "mobile": "(content - 24) / 3"
+      },
+      "gap": 12,
+      "items": [
+        {
+          "type": "person",
+          "src": "assets/images/people/person-4-480.webp",
+          "shape": "circle",
+          "fit": "cover"
+        },
+        {
+          "type": "community-monogram",
+          "text": "U",
+          "background": "#1E3A8A",
+          "color": "#FFFFFF",
+          "radius": "30%"
+        },
+        {
+          "type": "person",
+          "src": "assets/images/people/person-1-480.webp",
+          "shape": "circle",
+          "fit": "cover"
+        },
+        {
+          "type": "community-monogram",
+          "text": "DH",
+          "background": "#FFFFFF",
+          "color": "#1E3A8A",
+          "radius": "30%",
+          "ring": "inset 0 0 0 1px #DFE4ED"
+        },
+        {
+          "type": "person",
+          "src": "assets/images/people/person-2-480.webp",
+          "shape": "circle",
+          "fit": "cover"
+        },
+        {
+          "type": "community-monogram",
+          "text": "CG",
+          "background": "#0068D6",
+          "color": "#FFFFFF",
+          "radius": "30%"
+        }
+      ]
+    }
+  },
+  "SiteFooter": {
+    "logo": {
+      "src": "assets/logos/kinnoc-lockup-blue.png",
+      "height": 34,
+      "width": 70,
+      "fit": "contain",
+      "position": "left center"
+    }
+  },
+  "Head": {
+    "favicon": "assets/logos/favicon/favicon.ico",
+    "icon32": "assets/logos/favicon/favicon-32.png",
+    "appleTouchIcon": "assets/logos/favicon/apple-touch-icon-180.png",
+    "icon512": "assets/logos/favicon/icon-512.png",
+    "status": "Derived from the official blue symbol in this package. Not part of the approved design; confirm before launch."
+  },
+  "LogoOnBackground": {
+    "white": "assets/logos/kinnoc-lockup-blue.png",
+    "mist": "assets/logos/kinnoc-lockup-blue.png",
+    "sky": "assets/logos/kinnoc-lockup-blue.png",
+    "ink": "assets/logos/kinnoc-lockup-white.png",
+    "navy": "assets/logos/kinnoc-lockup-white.png",
+    "action-blue": "assets/logos/kinnoc-lockup-white.png",
+    "print-one-colour": "assets/logos/kinnoc-lockup-navy.png"
+  }
+}

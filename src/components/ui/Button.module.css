@@ -1,0 +1,30 @@
+/* Hover, active and focus come from interactions.css (.kw-primary / .kw-quiet / .kw-light). */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: none;
+  border: 0;
+  border-radius: var(--kn-radius-lg);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.primary { background: var(--kn-color-action); color: var(--kn-color-paper); }
+.quiet { background: var(--kn-color-mist); color: var(--kn-color-ink); }
+.light { background: var(--kn-color-paper); color: var(--kn-color-ink); }
+
+.s56 { height: 56px; padding: 0 26px; }
+.s56.quiet { padding: 0 24px; }
+.s52 { height: 52px; padding: 0 22px; }
+.s48 { height: 48px; padding: 0 22px; font-size: 15px; }
+.s44 { height: 44px; padding: 0 18px; font-size: 15px; }
+.s40 { height: 40px; padding: 0 14px; font-size: 14px; border-radius: var(--kn-radius-md); }
+
+@media (max-width: 639px) {
+  .fullOnMobile { flex: 1 1 100%; }
+}

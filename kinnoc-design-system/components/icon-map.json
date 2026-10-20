@@ -1,0 +1,358 @@
+{
+  "_readme": "Use components/Icon.tsx (<Icon name=\"search\" size={22} strokeWidth={1.9} />) or the SVG files. All icons are 24px-grid outlines in currentColor, Lucide-derived (ISC). Do not mix in other icon packs and do not use emoji for interface icons.",
+  "component": "components/Icon.tsx",
+  "defaults": {
+    "size": 24,
+    "strokeWidth": 1.8
+  },
+  "icons": {
+    "menu": {
+      "file": "assets/icons/navigation/menu.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": null,
+      "note": "Kinnoc two-line menu. Not Lucide \"menu\" (three lines)."
+    },
+    "close": {
+      "file": "assets/icons/navigation/close.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "X",
+      "note": ""
+    },
+    "arrow-right": {
+      "file": "assets/icons/navigation/arrow-right.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "ArrowRight",
+      "note": ""
+    },
+    "arrow-up": {
+      "file": "assets/icons/navigation/arrow-up.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "ArrowUp",
+      "note": ""
+    },
+    "chevron-left": {
+      "file": "assets/icons/navigation/chevron-left.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "ChevronLeft",
+      "note": ""
+    },
+    "feed": {
+      "file": "assets/icons/features/feed.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "House",
+      "note": "Feed destination."
+    },
+    "communities": {
+      "file": "assets/icons/features/communities.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "MessageSquareText",
+      "note": "Communities destination. Two text lines, the second shorter (differs slightly from Lucide)."
+    },
+    "discover": {
+      "file": "assets/icons/features/discover.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Compass",
+      "note": "Discover destination."
+    },
+    "profile": {
+      "file": "assets/icons/features/profile.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "User",
+      "note": "Profile destination."
+    },
+    "heart": {
+      "file": "assets/icons/social/heart.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Heart",
+      "note": "Liked state: fill with the same colour as the stroke."
+    },
+    "comment": {
+      "file": "assets/icons/social/comment.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "MessageCircle",
+      "note": ""
+    },
+    "share": {
+      "file": "assets/icons/social/share.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Send",
+      "note": ""
+    },
+    "bookmark": {
+      "file": "assets/icons/social/bookmark.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Bookmark",
+      "note": "Saved state: fill with the same colour as the stroke."
+    },
+    "search": {
+      "file": "assets/icons/interface/search.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Search",
+      "note": ""
+    },
+    "bell": {
+      "file": "assets/icons/interface/bell.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Bell",
+      "note": "Unread: 8px #0068D6 dot top right with a 2px white ring."
+    },
+    "image": {
+      "file": "assets/icons/interface/image.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Image",
+      "note": ""
+    },
+    "more-horizontal": {
+      "file": "assets/icons/interface/more-horizontal.svg",
+      "mode": "fill",
+      "lucideReactEquivalent": "Ellipsis",
+      "note": ""
+    },
+    "compose": {
+      "file": "assets/icons/interface/compose.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "SquarePen",
+      "note": ""
+    },
+    "plus": {
+      "file": "assets/icons/interface/plus.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Plus",
+      "note": ""
+    },
+    "camera": {
+      "file": "assets/icons/interface/camera.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Camera",
+      "note": ""
+    },
+    "settings": {
+      "file": "assets/icons/interface/settings.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Settings",
+      "note": ""
+    },
+    "check": {
+      "file": "assets/icons/interface/check.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "Check",
+      "note": "Message sent."
+    },
+    "check-check": {
+      "file": "assets/icons/interface/check-check.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "CheckCheck",
+      "note": "Message read."
+    },
+    "play": {
+      "file": "assets/icons/interface/play.svg",
+      "mode": "fill",
+      "lucideReactEquivalent": "Play",
+      "note": "Video resource lead visual."
+    },
+    "file-text": {
+      "file": "assets/icons/interface/file-text.svg",
+      "mode": "stroke",
+      "lucideReactEquivalent": "FileText",
+      "note": "Guide resource lead visual."
+    }
+  },
+  "usage": {
+    "SiteHeader.menu": {
+      "icon": "menu",
+      "size": 24,
+      "strokeWidth": 1.9,
+      "color": "ink"
+    },
+    "SiteHeader.close": {
+      "icon": "close",
+      "size": 24,
+      "strokeWidth": 1.9,
+      "color": "ink"
+    },
+    "Button.trailingArrow": {
+      "icon": "arrow-right",
+      "size": 18,
+      "strokeWidth": 2.2,
+      "color": "currentColor",
+      "where": "Join Kinnoc, Explore Discover, Explore communities"
+    },
+    "HowItWorks.step3.saved": {
+      "icon": "bookmark",
+      "size": 18,
+      "strokeWidth": 1.75,
+      "filled": true,
+      "color": "action"
+    },
+    "Phone.header.search": {
+      "icon": "search",
+      "size": 22,
+      "strokeWidth": 1.9,
+      "color": "ink"
+    },
+    "Phone.header.notifications": {
+      "icon": "bell",
+      "size": 22,
+      "strokeWidth": 1.9,
+      "color": "ink",
+      "badge": "8px action dot, 2px white ring"
+    },
+    "Phone.header.compose": {
+      "icon": "compose",
+      "size": 21,
+      "strokeWidth": 1.8
+    },
+    "Phone.header.saved": {
+      "icon": "bookmark",
+      "size": 21,
+      "strokeWidth": 1.8
+    },
+    "Phone.header.settings": {
+      "icon": "settings",
+      "size": 22,
+      "strokeWidth": 1.7
+    },
+    "Phone.composer.photo": {
+      "icon": "image",
+      "size": 22,
+      "strokeWidth": 1.8
+    },
+    "Phone.post.more": {
+      "icon": "more-horizontal",
+      "size": 20,
+      "color": "ink-3"
+    },
+    "Phone.post.like": {
+      "icon": "heart",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "filledWhen": "liked",
+      "color": {
+        "default": "ink-2",
+        "active": "action"
+      }
+    },
+    "Phone.post.comment": {
+      "icon": "comment",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "color": "ink-2"
+    },
+    "Phone.post.share": {
+      "icon": "share",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "color": "ink-2"
+    },
+    "Phone.post.save": {
+      "icon": "bookmark",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "filledWhen": "saved",
+      "color": {
+        "default": "ink-2",
+        "active": "action"
+      }
+    },
+    "Phone.conversation.back": {
+      "icon": "chevron-left",
+      "size": 24,
+      "strokeWidth": 2
+    },
+    "Phone.conversation.info": {
+      "icon": "more-horizontal",
+      "size": 20,
+      "color": "ink-2"
+    },
+    "Phone.message.read": {
+      "icon": "check-check",
+      "size": 15,
+      "strokeWidth": 2,
+      "color": "on-navy"
+    },
+    "Phone.message.sent": {
+      "icon": "check",
+      "size": 13,
+      "strokeWidth": 2,
+      "color": "on-navy"
+    },
+    "Phone.messageComposer.attach": {
+      "icon": "plus",
+      "size": 24,
+      "strokeWidth": 1.9
+    },
+    "Phone.messageComposer.send": {
+      "icon": "arrow-up",
+      "size": 19,
+      "strokeWidth": 2.2,
+      "color": "paper",
+      "container": "40px action circle"
+    },
+    "Phone.messageComposer.photo": {
+      "icon": "camera",
+      "size": 22,
+      "strokeWidth": 1.8
+    },
+    "Phone.listing.save": {
+      "icon": "bookmark",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "filledWhen": "saved",
+      "color": {
+        "default": "ink-2",
+        "active": "action",
+        "onNavyCard": "paper"
+      }
+    },
+    "Phone.listing.videoLead": {
+      "icon": "play",
+      "size": 16,
+      "color": "paper",
+      "container": "42x54 ink tile, radius 8"
+    },
+    "Phone.listing.guideLead": {
+      "icon": "file-text",
+      "size": 20,
+      "strokeWidth": 1.8,
+      "color": "ink-2",
+      "container": "42x54 mist tile, radius 8"
+    },
+    "Phone.nav.feed": {
+      "icon": "feed",
+      "size": 24,
+      "strokeWidth": 1.8,
+      "color": {
+        "default": "ink-3",
+        "active": "action"
+      }
+    },
+    "Phone.nav.communities": {
+      "icon": "communities",
+      "size": 24,
+      "strokeWidth": 1.8,
+      "color": {
+        "default": "ink-3",
+        "active": "action"
+      },
+      "badge": "8px action dot when unread"
+    },
+    "Phone.nav.discover": {
+      "icon": "discover",
+      "size": 24,
+      "strokeWidth": 1.8,
+      "color": {
+        "default": "ink-3",
+        "active": "action"
+      }
+    },
+    "Phone.nav.profile": {
+      "icon": "profile",
+      "size": 24,
+      "strokeWidth": 1.8,
+      "color": {
+        "default": "ink-3",
+        "active": "action"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "kinnoc-web",
+  "version": "1.0.0",
+  "description": "Official Kinnoc public marketing website — Find your people. Join the conversation. Discover what's next.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "assets:sync": "rm -rf public/kinnoc && mkdir -p public/kinnoc && cp -R kinnoc-design-system/assets/logos kinnoc-design-system/assets/images kinnoc-design-system/assets/illustrations public/kinnoc/ && rm -rf public/kinnoc/logos/source",
+    "assets:verify": "npm --prefix kinnoc-design-system run verify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Briventco/kinnoc-web.git"
+  },
+  "keywords": [
+    "kinnoc",
+    "community",
+    "conversations",
+    "opportunities",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Brivent Global Innovations Limited",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "next": "^14.2.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "5.9.3"
+  }
+}
